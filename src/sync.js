@@ -2,8 +2,12 @@ import { observe } from 'mobx';
 
 export const syncHistoryWithStore = (history, store) => {
   const getStoreLocation = () => {
-    return store.locationBeforeTransitions;
+    return store.location;
   };
+
+  // Initialise store
+  store.history = history;
+  store._updateLocation(history.getCurrentLocation());
 
   // Handle update from history object
   const handleLocationChange = (location) => {
@@ -16,39 +20,23 @@ export const syncHistoryWithStore = (history, store) => {
     ...history,
     // User can subscribe to history changes
     listen(listener) {
-      let lastLocation = getStoreLocation();
-      let unsubscribed = false;
-
       const onStoreChange = (change) => {
-        const currentLocation = getStoreLocation();
-        if (currentLocation === lastLocation) {
-          return;
-        }
-        lastLocation = currentLocation;
-        if (!unsubscribed) {
-          listener(lastLocation);
-        }
+        listener(getStoreLocation());
       };
 
       // Listen for changes to location state in store
-      const unsubscribeFromStore = observe(
-        getStoreLocation(),
-        onStoreChange,
-        invokeImmediately
-      );
+      const unsubscribeFromStore = observe(store, 'location', onStoreChange);
 
-      listener(lastLocation);
+      listener(getStoreLocation());
 
       return () => {
-        unsubscribed = true;
         unsubscribeFromStore();
       };
     },
 
-    // Provide way to unsubscribe from store AND history
+    // Provide way to unsubscribe from history
     unsubscribe() {
       unsubscribeFromHistory();
-      unsubscribeFromStore();
     }
   };
 };

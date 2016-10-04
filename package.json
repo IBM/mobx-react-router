@@ -55,17 +55,18 @@
     "eslint-plugin-react": "^6.3.0",
     "eslint-plugin-standard": "^2.0.0",
     "jest": "^15.1.1",
-    "mobx": "^2.5.2",
+    "mobx-react": "^3.5.7",
     "react": "^15.0.0",
     "react-addons-test-utils": "^15.3.2",
     "react-dom": "^15.0.0",
     "react-router": "^3.0.0-beta.1",
     "react-test-renderer": "^15.3.2",
     "rimraf": "^2.5.4",
+    "shallowequal": "^0.2.2",
     "webpack": "^2.1.0-beta.25"
   },
   "peerDependencies": {
-    "react": "^15.0.0",
-    "react-dom": "^15.0.0"
+    "mobx": "^2.5.2",
+    "react": "^15.0.0"
   }
 }
