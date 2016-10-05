@@ -16,9 +16,6 @@ This branch is for use with **react-router 2**.
 #### react-router v3
 A `v3` branch will be created at some point for use with **react-router v3**. It looks like there might be some fairly major changes with the history API, so we'll wait until that version is stable.
 
-#### react-router v4
-A `v4` branch will be created soon for use with **react-router v4**, probably before the `v3` version.
-
 ## Installation
 
 For use with **react-router v2** (*most recent stable version)*.
