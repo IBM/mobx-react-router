@@ -5,21 +5,19 @@ Router location state is **observable**, so any references to it in `MobX` compo
 
 Very much inspired by (and copied from) [react-router-redux](https://github.com/reactjs/react-router-redux/tree/master/test).
 
-This branch is for use with **react-router 2**.
-
-### react-router v3
-A `v3` branch will be created at some point for use with **react-router v3**. It looks like there might be some fairly major changes with the history API, so we'll wait until that version is stable.
-
-### react-router v4
-A `v4` branch will be created soon for use with **react-router v4**, probably before the `v3` version.
-
-### Contents
-
 - [Installation](#installation)
 - [Usage](#usage)
 - [API](#api)
   - [RouterStore](#routerstore)
   - [syncHistoryWithStore](#synchistorywithstorehistory-store)
+
+This branch is for use with **react-router 2**.
+
+#### react-router v3
+A `v3` branch will be created at some point for use with **react-router v3**. It looks like there might be some fairly major changes with the history API, so we'll wait until that version is stable.
+
+#### react-router v4
+A `v4` branch will be created soon for use with **react-router v4**, probably before the `v3` version.
 
 ## Installation
 
@@ -105,10 +103,10 @@ And the following [history methods](https://github.com/mjackson/history#navigati
 
 ### syncHistoryWithStore(*history*, *store*)
 
-- `History` - A variant of a history object, usually `browserHistory`
+- `history` - A variant of a history object, usually `browserHistory`
 - `store` - An instance of `RouterStore`
 
-returns an *enhanced* history object with the following **additional methods**
+returns an *enhanced* history object with the following **additional methods**:
 
 - **listen(*listener*)**  
 Listen to any changes in the store's `location` observable  
