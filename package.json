@@ -1,8 +1,8 @@
 {
-  "name": "react-router-mobx",
-  "version": "3.0.0",
+  "name": "mobx-react-router",
+  "version": "2.0.0",
   "description": "Keep your MobX state in sync with react-router",
-  "main": "dist/react-async-actions.js",
+  "main": "dist/mobx-react-router.js",
   "scripts": {
     "lint": "eslint src __test__",
     "test": "jest",
@@ -20,7 +20,7 @@
   },
   "repository": {
     "type": "git",
-    "url": "git+https://github.com/alisd23/react-router-mobx.git"
+    "url": "git+https://github.com/alisd23/mobx-react-router.git"
   },
   "keywords": [
     "react",
@@ -34,9 +34,9 @@
   "author": "Ali Sheehan-Dare - @im_alisd",
   "license": "MIT",
   "bugs": {
-    "url": "https://github.com/alisd23/react-async-actions/issues"
+    "url": "https://github.com/alisd23/mobx-react-router/issues"
   },
-  "homepage": "https://github.com/alisd23/react-async-actions#readme",
+  "homepage": "https://github.com/alisd23/mobx-react-router#readme",
   "devDependencies": {
     "babel-eslint": "^6.1.2",
     "babel-jest": "^15.0.0",
@@ -59,7 +59,7 @@
     "react": "^15.0.0",
     "react-addons-test-utils": "^15.3.2",
     "react-dom": "^15.0.0",
-    "react-router": "^3.0.0-beta.1",
+    "react-router": "^2.8.1",
     "react-test-renderer": "^15.3.2",
     "rimraf": "^2.5.4",
     "shallowequal": "^0.2.2",
@@ -67,6 +67,7 @@
   },
   "peerDependencies": {
     "mobx": "^2.5.2",
-    "react": "^15.0.0"
+    "react": "15.x",
+    "react-router": "2.x"
   }
 }

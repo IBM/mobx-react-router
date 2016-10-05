@@ -1,7 +1,7 @@
 const path = require('path');
 const webpack = require('webpack');
 
-const libraryName = 'ReactRouterMobx';
+const libraryName = 'MobxReactRouter';
 const env = process.env.ENV || 'development';
 
 let outputFile;
@@ -24,9 +24,9 @@ if (env === 'production') {
       mangle: true
     }
   ));
-  outputFile = 'react-router-mobx.min.js';
+  outputFile = 'mobx-react-router.min.js';
 } else {
-  outputFile = 'react-router-mobx.js';
+  outputFile = 'mobx-react-router.js';
 }
 
 module.exports = {
