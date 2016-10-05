@@ -1,15 +1,15 @@
 {
   "name": "mobx-react-router",
-  "version": "2.0.1",
   "description": "Keep your MobX state in sync with react-router",
   "main": "dist/mobx-react-router.js",
   "scripts": {
     "lint": "eslint src __test__",
-    "test": "jest",
+    "test": "npm run lint && jest",
     "test-watch": "jest --watch",
     "clean": "rimraf dist -f",
     "build": "cross-env ENV=production webpack --progress --colors && webpack --progress --colors",
-    "prepublish": "npm run clean && npm run lint && npm run test && npm run build"
+    "prepublish": "npm run clean && npm run lint && npm run test && npm run build",
+    "semantic-release": "semantic-release pre && npm publish && semantic-release post"
   },
   "jest": {
     "collectCoverage": true,
@@ -20,7 +20,7 @@
   },
   "repository": {
     "type": "git",
-    "url": "git+https://github.com/alisd23/mobx-react-router.git"
+    "url": "https://github.com/alisd23/mobx-react-router.git"
   },
   "keywords": [
     "react",
@@ -55,6 +55,7 @@
     "eslint-plugin-react": "^6.3.0",
     "eslint-plugin-standard": "^2.0.0",
     "jest": "^15.1.1",
+    "mobx": "^2.5.2",
     "mobx-react": "^3.5.7",
     "react": "^15.0.0",
     "react-addons-test-utils": "^15.3.2",
@@ -63,7 +64,8 @@
     "react-test-renderer": "^15.3.2",
     "rimraf": "^2.5.4",
     "shallowequal": "^0.2.2",
-    "webpack": "^2.1.0-beta.25"
+    "webpack": "^2.1.0-beta.25",
+    "semantic-release": "^4.3.5"
   },
   "peerDependencies": {
     "mobx": "^2.5.2",
