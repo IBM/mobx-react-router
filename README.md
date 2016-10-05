@@ -35,7 +35,8 @@ npm install mobx-react-router --save
 ```js
 import React from 'react';
 import ReactDOM from 'react-dom';
-import { Provider } from 'mobx-react;'
+import { Provider } from 'mobx-react';
+import { RouterStore, syncHistoryWithStore } from 'mobx-react-router';
 import { Router, Route, browserHistory } from 'react-router';
 import App from './App';
 
