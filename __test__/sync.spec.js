@@ -10,7 +10,7 @@ const matchers = {
       expected = {
         search: '',
         hash: '',
-        state: null,
+        state: undefined,
         action: 'PUSH',
         query: {},
         ...expected

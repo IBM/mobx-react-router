@@ -10,6 +10,7 @@ export const syncHistoryWithStore = (history, store) => {
   };
 
   const unsubscribeFromHistory = history.listen(handleLocationChange);
+  handleLocationChange(history.getCurrentLocation());
 
   return {
     ...history,
