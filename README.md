@@ -11,14 +11,12 @@ Very much inspired by (and copied from) [react-router-redux](https://github.com/
   - [RouterStore](#routerstore)
   - [syncHistoryWithStore](#synchistorywithstorehistory-store)
 
-This branch is for use with **react-router 2**.
-
-#### react-router v3
-A `v3` branch will be created at some point for use with **react-router v3**. It looks like there might be some fairly major changes with the history API, so we'll wait until that version is stable.
+I have decided to support `react-router v3` as a **minimum**, so `mobx-react-router` has a peer dependency of that version.
+Upgrading a project from `v2` to `v3` should be fairly trivial, so I feel there is no reason to support `v2` anymore.
 
 ## Installation
 
-For use with **react-router v2** (*most recent stable version)*.
+For use with **react-router v3** *(most recent stable version)*.
 
 ```
 npm install mobx-react-router --save
