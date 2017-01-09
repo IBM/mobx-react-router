@@ -34,6 +34,23 @@ declare namespace MobxReactRouter {
     createLocation(path: string, action?: Action, key?: string): Location;
     createLocation(location: LocationDescriptor): Location;
     getCurrentLocation: () => Location;
+
+    /** @deprecated */
+    setState(path: string): void;
+    /** @deprecated */
+    setState(location: LocationDescriptor): void;
+    /** @deprecated use push() instead */
+    pushState(path: string): void;
+    /** @deprecated use push() instead */
+    pushState(location: LocationDescriptor): void;
+    /** @deprecated use replace() instead */
+    replaceState(path: string): void;
+    /** @deprecated use replace() instead */
+    replaceState(location: LocationDescriptor): void;
+    /** @deprecated */
+    registerTransitionHook(hook: TransitionHook): UnsubscribeCallback;
+    /** @deprecated */
+    unregisterTransitionHook(hook: TransitionHook): void;
   }
 
   export type Location = {
@@ -41,9 +58,9 @@ declare namespace MobxReactRouter {
     search: string;
     action: string;
     key: string;
-    hash: string
     state: any;
-    query?: any;
+    query: any;
+    hash?: string
     basename?: string;
   };
 
