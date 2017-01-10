@@ -1,3 +1,6 @@
+// Type definitions for mobx-react-router 3.1
+// Project: https://github.com/alisd23/mobx-react-router
+
 declare namespace MobxReactRouter {
 
   export type Action = 'POP' | 'PUSH' | 'REPLACE';
@@ -53,27 +56,29 @@ declare namespace MobxReactRouter {
     unregisterTransitionHook(hook: TransitionHook): void;
   }
 
-  export type Location = {
+  export interface Location {
     pathname: string;
     search: string;
     action: string;
     key: string;
     state: any;
     query: any;
-    hash?: string
+    hash?: string;
     basename?: string;
-  };
+  }
 
-  export type LocationDescriptor = {
+  export interface LocationDescriptor {
     pathname?: string;
     search?: string;
     action?: string;
     state?: any;
     hash?: string;
     key?: string;
-  };
+  }
 
-  export type SynchronizedHistory = History & { unsubscribe?: UnsubscribeCallback };
+  export interface SynchronizedHistory extends History {
+    unsubscribe?: UnsubscribeCallback;
+  }
 
   export class RouterStore {
     location: Location;
