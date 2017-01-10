@@ -1,13 +1,22 @@
 // This contains sample code which tests the typings. This code does not run, but it is type-checked
-import { RouterStore, syncHistoryWithStore } from '../';
-import { History, Location } from '../';
+import { Router, browserHistory } from 'react-router';
+import { RouterStore, SynchronizedHistory, Location, syncHistoryWithStore } from '../';
 
-const browserHistory: History = undefined;
 const routerStore: RouterStore = new RouterStore();
-const history = syncHistoryWithStore(browserHistory, routerStore);
+const history: SynchronizedHistory = syncHistoryWithStore(browserHistory, routerStore);
 
 {
-  // browserHistory.unsubscribe(); 
+  <Router history={history}>
+    {/* routes */}
+  </Router>
+}
+
+{
+  { <Router history={browserHistory} /> }
+  { <Router history={routerStore.history} /> }
+}
+
+{
   history.unsubscribe();
 
   const unsubscribeFromStore = history.listen(location => console.log(location.pathname));
@@ -17,7 +26,7 @@ const history = syncHistoryWithStore(browserHistory, routerStore);
 }
 
 {
-  const history: History = routerStore.history;
+  const history: SynchronizedHistory = routerStore.history;
   history.createHref('location');
   history.createHref({ pathname: 'path', hash: '#1234' });
 
