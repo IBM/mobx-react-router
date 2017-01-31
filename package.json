@@ -57,8 +57,8 @@
     "eslint-plugin-react": "^6.3.0",
     "eslint-plugin-standard": "^2.0.0",
     "jest": "^15.1.1",
-    "mobx": "^2.5.2",
-    "mobx-react": "^3.5.7",
+    "mobx": "^3.0.0",
+    "mobx-react": "^4.1.0",
     "react": "^15.0.0",
     "react-addons-test-utils": "^15.3.2",
     "react-router": "^3.0.0",
@@ -70,7 +70,7 @@
     "webpack": "^2.1.0-beta.25"
   },
   "peerDependencies": {
-    "mobx": "^2.5.2",
+    "mobx": "^3.0.0",
     "react-router": "3.x"
   }
 }
