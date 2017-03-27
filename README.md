@@ -21,7 +21,7 @@ If you're looking for a react-router `v4` compatible version, this is available 
 For use with **react-router v3**.
 
 ```
-npm install mobx-react-router --save
+npm install mobx-react-router@^3.0.0 --save
 ```
 
 ## Usage
