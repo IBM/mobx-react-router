@@ -70,7 +70,6 @@ describe('syncing', () => {
       action: 'REPLACE'
     });
   });
-
   it('provides listen and unsubscribe functions', () => {
     expect(history.listen).not.toBeUndefined();
     expect(history.unsubscribe).not.toBeUndefined();
