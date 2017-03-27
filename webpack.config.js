@@ -10,11 +10,9 @@ const shouldMinify = Boolean(process.env.MINIFY);
 let outputFile;
 
 const plugins = [
-  new webpack.NoErrorsPlugin(),
   new webpack.DefinePlugin({
     'process.env.NODE_ENV': JSON.stringify(env)
   }),
-  new webpack.optimize.DedupePlugin(),
   new webpack.optimize.OccurrenceOrderPlugin()
 ];
 

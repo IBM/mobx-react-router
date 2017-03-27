@@ -14,6 +14,9 @@
     "prepublish": "npm run clean && npm run lint && npm run test && npm run build",
     "semantic-release": "semantic-release pre && npm publish && semantic-release post"
   },
+  "release": {
+    "branch": "v3"
+  },
   "jest": {
     "collectCoverage": true,
     "coverageDirectory": "./__test__/coverage",
@@ -58,7 +61,7 @@
     "eslint-plugin-promise": "^2.0.1",
     "eslint-plugin-react": "^6.3.0",
     "eslint-plugin-standard": "^2.0.0",
-    "jest": "^15.1.1",
+    "jest": "^19.0.2",
     "mobx": "^3.0.2",
     "mobx-react": "^4.1.0",
     "react": "^15.0.0",
@@ -68,8 +71,8 @@
     "rimraf": "^2.5.4",
     "semantic-release": "^4.3.5",
     "shallowequal": "^0.2.2",
-    "typescript": "^2.1.4",
-    "webpack": "^2.1.0-beta.25"
+    "typescript": "^2.2.2",
+    "webpack": "^2.3.2"
   },
   "peerDependencies": {
     "mobx": "^3.0.0",

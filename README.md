@@ -3,7 +3,7 @@ Keep your MobX state in sync with react-router via a `RouterStore`.
 
 Router location state is **observable**, so any references to it in `MobX` components will cause the component to re-render when the location changes.
 
-Very much inspired by (and copied from) [react-router-redux](https://github.com/reactjs/react-router-redux/tree/master/test).
+Very much inspired by (and copied from) [react-router-redux](https://github.com/reactjs/react-router-redux/tree/3.0.x).
 
 - [Installation](#installation)
 - [Usage](#usage)
@@ -14,9 +14,11 @@ Very much inspired by (and copied from) [react-router-redux](https://github.com/
 I have decided to support `react-router v3` as a **minimum**, so `mobx-react-router` has a peer dependency of that version.
 Upgrading a project from `v2` to `v3` should be fairly trivial, so I feel there is no reason to support `v2` anymore.
 
+If you're looking for a react-router `v4` compatible version, this is available on the [master branch](https://github.com/alisd23/mobx-react-router)
+
 ## Installation
 
-For use with **react-router v3** *(most recent stable version)*.
+For use with **react-router v3**.
 
 ```
 npm install mobx-react-router --save
@@ -85,10 +87,10 @@ const store = new RouterStore();
 
 A **router store** instance has the following properties:
 
-- `location` (*observable*) - history [location object](https://github.com/mjackson/history#listening)
+- `location` (*observable*) - history [location object](https://github.com/ReactTraining/history/blob/v3/docs/Location.md)
 - `history` - raw [history API](https://github.com/mjackson/history#properties) object
 
-And the following [history methods](https://github.com/mjackson/history#navigation):
+And the following [history methods](https://github.com/ReactTraining/history/blob/v3/docs/GettingStarted.md#navigation):
 
 - **push(*path*)**
 - **replace(*path*)**
