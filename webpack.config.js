@@ -3,9 +3,12 @@ const path = require('path');
 const webpack = require('webpack');
 
 const libraryName = 'MobxReactRouter';
-const env = process.env.ENV || 'development';
+const env = process.env.NODE_ENV || 'development';
+const isDev = env === 'development';
+const shouldMinify = Boolean(process.env.MINIFY);
 
 let outputFile;
+
 const plugins = [
   new webpack.NoErrorsPlugin(),
   new webpack.DefinePlugin({
@@ -15,7 +18,7 @@ const plugins = [
   new webpack.optimize.OccurrenceOrderPlugin()
 ];
 
-if (env === 'production') {
+if (shouldMinify) {
   plugins.push(new webpack.optimize.UglifyJsPlugin(
     {
       minimize: true,
@@ -31,7 +34,7 @@ if (env === 'production') {
 }
 
 module.exports = {
-  devtool: 'source-map',
+  devtool: isDev ? 'source-map' : false,
   entry: [path.resolve(__dirname, 'index.js')],
   output: {
     path: path.resolve(__dirname, 'dist'),
