@@ -3,7 +3,7 @@ Keep your MobX state in sync with react-router via a `RouterStore`.
 
 Router location state is **observable**, so any references to it in `MobX` components will cause the component to re-render when the location changes.
 
-Very much inspired by (and copied from) [react-router-redux](https://github.com/reactjs/react-router-redux/tree/master/test).
+Very much inspired by (and copied from) [react-router-redux](https://github.com/reactjs/react-router-redux/tree/master).
 
 - [Installation](#installation)
 - [Usage](#usage)
@@ -11,6 +11,7 @@ Very much inspired by (and copied from) [react-router-redux](https://github.com/
   - [RouterStore](#routerstore)
   - [syncHistoryWithStore](#synchistorywithstorehistory-store)
 
+If you're looking for the bindings for use with react-router `v3` go to [this branch](https://github.com/alisd23/mobx-react-router/tree/v3)
 ## Installation
 
 For use with **react-router v4**.
@@ -111,7 +112,7 @@ returns an *enhanced* history object with the following **additional methods**:
 Listen to any changes in the store's `location` observable  
 **Returns** an unsubscribe function which destroys the listener
 ```js
-const unsubscribeFromStore = history.listen(location => console.log(location.pathname));
+const unsubscribeFromStore = history.listen((location, action) => console.log(location.pathname));
 
 history.push('/test1');
 unsubscribeFromStore();
