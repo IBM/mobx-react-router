@@ -1,8 +1,11 @@
 // This contains sample code which tests the typings. This code does not run, but it is type-checked
-import { Router, browserHistory } from 'react-router';
-import { RouterStore, SynchronizedHistory, Location, syncHistoryWithStore } from '../';
+import { Router } from 'react-router';
+import { History, Location } from 'history';
+import createBrowserHistory from 'history/createBrowserHistory';
+import { RouterStore, SynchronizedHistory, syncHistoryWithStore } from '../';
 
 const routerStore: RouterStore = new RouterStore();
+const browserHistory: History = createBrowserHistory();
 const history: SynchronizedHistory = syncHistoryWithStore(browserHistory, routerStore);
 
 {
@@ -30,7 +33,7 @@ const history: SynchronizedHistory = syncHistoryWithStore(browserHistory, router
   history.createHref('location');
   history.createHref({ pathname: 'path', hash: '#1234' });
 
-  const location: Location = history.getCurrentLocation();
+  const location: Location = history.location;
   history.push('path/to/location');
   history.push(location);
   history.replace('path/to/replace');
