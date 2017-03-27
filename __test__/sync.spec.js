@@ -1,5 +1,4 @@
-import { createMemoryHistory } from 'react-router';
-import shallowEqual from 'shallowequal';
+import createMemoryHistory from 'history/createMemoryHistory';
 import { RouterStore, syncHistoryWithStore } from '../index';
 
 let history, memoryHistory, routerStore;
@@ -11,19 +10,19 @@ const matchers = {
         search: '',
         hash: '',
         state: undefined,
-        action: 'PUSH',
-        query: {},
         ...expected
       };
+      const passed = (
+        actual.pathname === expected.pathname &&
+        actual.search === expected.search &&
+        actual.hash === expected.hash &&
+        actual.state === expected.state
+      );
       return {
-        pass: (
-          actual.pathname === expected.pathname &&
-          actual.search === expected.search &&
-          actual.hash === expected.hash &&
-          actual.state === expected.state &&
-          shallowEqual(actual.query, expected.query) &&
-          actual.action === expected.action
-        )
+        pass: passed,
+        message: passed
+          ? 'Location\'s matched'
+          : `Expected location to be ${JSON.stringify(expected)} but it was ${JSON.stringify(actual)}`
       };
     }
   })
@@ -38,36 +37,36 @@ beforeEach(() => {
 
 describe('syncing', () => {
   it('syncs store with history', () => {
+    expect(routerStore.history.action).toBe('POP');
     expect(routerStore.location).toEqualLocation({
-      pathname: '/',
-      action: 'POP'
+      pathname: '/'
     });
 
     history.push('/url-1');
+    expect(routerStore.history.action).toBe('PUSH');
     expect(routerStore.location).toEqualLocation({
-      pathname: '/url-1',
-      action: 'PUSH'
+      pathname: '/url-1'
     });
 
     history.goBack();
+    expect(routerStore.history.action).toBe('POP');
     expect(routerStore.location).toEqualLocation({
-      pathname: '/',
-      action: 'POP'
+      pathname: '/'
     });
 
     history.goForward();
+    expect(routerStore.history.action).toBe('POP');
     expect(routerStore.location).toEqualLocation({
-      pathname: '/url-1',
-      action: 'POP'
+      pathname: '/url-1'
     });
 
     history.replace('/url-2?animal=fish#mango');
+    expect(routerStore.history.action).toBe('REPLACE');
     expect(routerStore.location).toEqualLocation({
       pathname: '/url-2',
       search: '?animal=fish',
       query: { animal: 'fish' },
-      hash: '#mango',
-      action: 'REPLACE'
+      hash: '#mango'
     });
   });
   it('provides listen and unsubscribe functions', () => {
@@ -94,8 +93,7 @@ describe('syncing', () => {
     history.push('/url-1');
 
     expect(routerStore.location).toEqualLocation({
-      pathname: '/',
-      action: 'POP'
+      pathname: '/'
     });
   });
 });

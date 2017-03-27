@@ -11,12 +11,9 @@ Very much inspired by (and copied from) [react-router-redux](https://github.com/
   - [RouterStore](#routerstore)
   - [syncHistoryWithStore](#synchistorywithstorehistory-store)
 
-I have decided to support `react-router v3` as a **minimum**, so `mobx-react-router` has a peer dependency of that version.
-Upgrading a project from `v2` to `v3` should be fairly trivial, so I feel there is no reason to support `v2` anymore.
-
 ## Installation
 
-For use with **react-router v3** *(most recent stable version)*.
+For use with **react-router v4**.
 
 ```
 npm install mobx-react-router --save
@@ -28,11 +25,13 @@ npm install mobx-react-router --save
 ```js
 import React from 'react';
 import ReactDOM from 'react-dom';
+import createBrowserHistory from 'history/createBrowserHistory';
 import { Provider } from 'mobx-react';
 import { RouterStore, syncHistoryWithStore } from 'mobx-react-router';
-import { Router, Route, browserHistory } from 'react-router';
+import { Router } from 'react-router'
 import App from './App';
 
+const browserHistory = createBrowserHistory();
 const routingStore = new RouterStore();
 
 const stores = {
@@ -46,7 +45,7 @@ const history = syncHistoryWithStore(browserHistory, routingStore);
 ReactDOM.render(
   <Provider {...stores}>
     <Router history={history}>
-      <Route path='/' component={App} />
+      <App />
     </Router>
   </Provider>,
   document.getElementById('root')
@@ -74,6 +73,11 @@ export default class App extends Component {
   }
 }
 ```
+
+### Typescript
+
+If you are using typescript - the built in typings for this project depend on
+`@types/history`, so make sure you have them installed too.
 
 ## API
 
