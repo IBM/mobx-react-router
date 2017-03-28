@@ -1,7 +1,8 @@
 # mobx-react-router
 Keep your MobX state in sync with react-router via a `RouterStore`.
 
-Router location state is **observable**, so any references to it in `MobX` components will cause the component to re-render when the location changes.
+Router location state is **observable**, so any references to it in `MobX`
+components will cause the component to re-render when the location changes.
 
 Very much inspired by (and copied from) [react-router-redux](https://github.com/reactjs/react-router-redux/tree/master).
 
@@ -11,10 +12,14 @@ Very much inspired by (and copied from) [react-router-redux](https://github.com/
   - [RouterStore](#routerstore)
   - [syncHistoryWithStore](#synchistorywithstorehistory-store)
 
-If you're looking for the bindings for use with react-router `v3` go to [this branch](https://github.com/alisd23/mobx-react-router/tree/v3)
+
+This branch (master) is for use with **react-router v4**.
+
+If you're looking for the bindings for use with react-router `v3` go to [the v3 branch](https://github.com/alisd23/mobx-react-router/tree/v3).
+
+
 ## Installation
 
-For use with **react-router v4**.
 
 ```
 npm install mobx-react-router --save
@@ -29,7 +34,7 @@ import ReactDOM from 'react-dom';
 import createBrowserHistory from 'history/createBrowserHistory';
 import { Provider } from 'mobx-react';
 import { RouterStore, syncHistoryWithStore } from 'mobx-react-router';
-import { Router } from 'react-router'
+import { Router } from 'react-router';
 import App from './App';
 
 const browserHistory = createBrowserHistory();
