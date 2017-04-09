@@ -14,7 +14,8 @@ export const syncHistoryWithStore = (history, store) => {
 
   const subscribe = (listener) => {
     const onStoreChange = (change) => {
-      listener(store.location, history.action);
+      const rawLocation = { ...store.location };
+      listener(rawLocation, history.action);
     };
 
     // Listen for changes to location state in store
