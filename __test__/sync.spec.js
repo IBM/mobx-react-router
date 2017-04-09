@@ -69,12 +69,12 @@ describe('syncing', () => {
       hash: '#mango'
     });
   });
-  it('provides listen and unsubscribe functions', () => {
-    expect(history.listen).not.toBeUndefined();
+  it('provides subscribe and unsubscribe functions', () => {
+    expect(history.subscribe).not.toBeUndefined();
     expect(history.unsubscribe).not.toBeUndefined();
 
     const historyListener = jest.fn();
-    const unsubscribe = history.listen(historyListener);
+    const unsubscribe = history.subscribe(historyListener);
 
     expect(historyListener.mock.calls.length).toBe(1);
     history.push('/url-1');
@@ -86,7 +86,7 @@ describe('syncing', () => {
 
   it('provdides a way to unsubscribe from store and history', () => {
     const historyListener = jest.fn();
-    history.listen(historyListener);
+    history.subscribe(historyListener);
 
     expect(historyListener.mock.calls.length).toBe(1);
     history.unsubscribe();

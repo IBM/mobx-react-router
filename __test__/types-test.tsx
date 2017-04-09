@@ -20,14 +20,14 @@ const history: SynchronizedHistory = syncHistoryWithStore(browserHistory, router
 {
   history.unsubscribe();
 
-  const unsubscribeFromStore = history.listen(location => console.log(location.pathname));
+  const unsubscribeFromStore = history.subscribe((Location, action) => console.log(location.pathname, action));
   history.push('/test1');
   unsubscribeFromStore();
   history.push('/test2');
 }
 
 {
-  const history: SynchronizedHistory = routerStore.history;
+  const history: History = routerStore.history;
   history.createHref('location');
   history.createHref({ pathname: 'path', hash: '#1234' });
 
