@@ -113,11 +113,11 @@ And the following [history methods](https://github.com/mjackson/history#navigati
 
 returns an *enhanced* history object with the following **additional methods**:
 
-- **listen(*listener*)**  
-Listen to any changes in the store's `location` observable  
+- **subscribe(*listener*)**  
+Subscribes to any changes in the store's `location` observable  
 **Returns** an unsubscribe function which destroys the listener
 ```js
-const unsubscribeFromStore = history.listen((location, action) => console.log(location.pathname));
+const unsubscribeFromStore = history.subscribe((location, action) => console.log(location.pathname));
 
 history.push('/test1');
 unsubscribeFromStore();

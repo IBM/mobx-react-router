@@ -12,27 +12,25 @@ export const syncHistoryWithStore = (history, store) => {
   const unsubscribeFromHistory = history.listen(handleLocationChange);
   handleLocationChange(history.location);
 
-  return {
-    ...history,
-    // User can subscribe to history changes
-    listen(listener) {
-      const onStoreChange = (change) => {
-        listener(store.location);
-      };
+  const subscribe = (listener) => {
+    const onStoreChange = (change) => {
+      const rawLocation = { ...store.location };
+      listener(rawLocation, history.action);
+    };
 
-      // Listen for changes to location state in store
-      const unsubscribeFromStore = observe(store, 'location', onStoreChange);
+    // Listen for changes to location state in store
+    const unsubscribeFromStore = observe(store, 'location', onStoreChange);
 
-      listener(store.location, history.action);
+    listener(store.location, history.action);
 
-      return () => {
-        unsubscribeFromStore();
-      };
-    },
-
-    // Provide way to unsubscribe from history
-    unsubscribe() {
-      unsubscribeFromHistory();
-    }
+    return () => {
+      unsubscribeFromStore();
+    };
   };
+  const unsubscribe = () => unsubscribeFromHistory();
+
+  history.subscribe = subscribe;
+  history.unsubscribe = unsubscribe;
+
+  return history;
 };
