@@ -17,7 +17,9 @@
   "jest": {
     "collectCoverage": true,
     "coverageDirectory": "./__test__/coverage",
-    "roots": ["__test__"]
+    "roots": [
+      "__test__"
+    ]
   },
   "repository": {
     "type": "git",
