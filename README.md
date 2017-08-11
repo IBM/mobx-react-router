@@ -28,7 +28,7 @@ npm install --save mobx-react-router
 And if you haven't installed `react-router` or its dependencies, do that now:
 
 ```bash
-npm install --save react-router history
+npm install --save mobx mobx-react react-router
 ```
 
 ## Usage
