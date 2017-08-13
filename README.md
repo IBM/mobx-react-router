@@ -20,12 +20,11 @@ If you're looking for the bindings for use with react-router `v3` go to [the v3 
 
 ## Installation
 
-
 ```
 npm install --save mobx-react-router
 ```
 
-And if you haven't installed `react-router` or its dependencies, do that now:
+And if you haven't installed all the peer dependencies, you should probably do that now:
 
 ```bash
 npm install --save mobx mobx-react react-router
