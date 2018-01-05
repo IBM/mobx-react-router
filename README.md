@@ -88,7 +88,7 @@ export default class App extends Component {
 ### Typescript
 
 If you are using typescript - the built in typings for this project depend on
-`@types/history`, so make sure you have them installed too.
+`@types/history` and `@types/react-router`, so make sure you have them installed too.
 
 ## API
 
