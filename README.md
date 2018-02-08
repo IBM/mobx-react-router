@@ -90,6 +90,24 @@ export default class App extends Component {
 If you are using typescript - the built in typings for this project depend on
 `@types/history`, so make sure you have them installed too.
 
+## Troubleshooting
+
+**Routes not updating correctly when URL changes**
+
+There is a known issue with React Router 4 and MobX (and Redux) where "blocker" components like those
+created by `@observer` (and `@connect` in Redux) block react router updates from propagating down the
+component tree.
+
+There is a React Router 4 documentation page for information on this issue:
+
+https://github.com/ReactTraining/react-router/blob/master/packages/react-router/docs/guides/blocked-updates.md
+
+To fix problems like this, try wrapping components which are being "blocked" with React Router's `withRouter` higher
+order component should help, depdending on the case.
+
+Refer to the link above for more information on this solution, and some alternatives.
+
+
 ## API
 
 ### RouterStore
