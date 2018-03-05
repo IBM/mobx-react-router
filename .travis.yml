@@ -6,12 +6,9 @@ cache:
 notifications:
   email: false
 node_js:
-  - '6'
-  - '7'
+  - 'node'
 before_install:
   - npm i -g npm@^3.0.0
-before_script:
-  - npm prune
 after_success:
   - 'curl -Lo travis_after_all.py https://git.io/travis_after_all'
   - python travis_after_all.py
