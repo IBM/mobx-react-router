@@ -28,7 +28,6 @@ const history: SynchronizedHistory = syncHistoryWithStore(browserHistory, router
 
 {
   const history: History = routerStore.history;
-  history.createHref('location');
   history.createHref({ pathname: 'path', hash: '#1234' });
 
   const location: Location = history.location;
