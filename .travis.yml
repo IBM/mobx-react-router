@@ -6,7 +6,7 @@ cache:
 notifications:
   email: false
 node_js:
-  - 'lts'
+  - 'lts/*'
 before_install:
   - npm i -g npm@^3.0.0
 after_success:
