@@ -21,6 +21,13 @@
       "__test__"
     ]
   },
+  "files": [
+    "dist",
+    "LICENSE",
+    "package.json",
+    "README.md",
+    "types.d.ts"
+  ],
   "repository": {
     "type": "git",
     "url": "https://github.com/alisd23/mobx-react-router.git"
