@@ -1,17 +1,10 @@
+
 import { observable, action } from 'mobx';
 
 export class RouterStore {
   @observable location = null;
 
   history = null;
-
-  constructor() {
-    this.push = this.push.bind(this);
-    this.replace = this.replace.bind(this);
-    this.go = this.go.bind(this);
-    this.goBack = this.goBack.bind(this);
-    this.goForward = this.goForward.bind(this);
-  }
 
   @action
   _updateLocation(newState) {
@@ -21,19 +14,18 @@ export class RouterStore {
   /*
    * History methods
    */
-  push(location) {
+  push = location =>
     this.history.push(location);
-  }
-  replace(location) {
+
+  replace = location =>
     this.history.replace(location);
-  }
-  go(n) {
+
+  go = n =>
     this.history.go(n);
-  }
-  goBack() {
+
+  goBack = () =>
     this.history.goBack();
-  }
-  goForward() {
+
+  goForward = () =>
     this.history.goForward();
-  }
-};
+}
