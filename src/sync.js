@@ -1,3 +1,4 @@
+
 import { observe } from 'mobx';
 
 export const syncHistoryWithStore = (history, store) => {
@@ -5,15 +6,15 @@ export const syncHistoryWithStore = (history, store) => {
   store.history = history;
 
   // Handle update from history object
-  const handleLocationChange = (location) => {
+  const handleLocationChange = location => {
     store._updateLocation(location);
   };
 
   const unsubscribeFromHistory = history.listen(handleLocationChange);
   handleLocationChange(history.location);
 
-  const subscribe = (listener) => {
-    const onStoreChange = (change) => {
+  const subscribe = listener => {
+    const onStoreChange = () => {
       const rawLocation = { ...store.location };
       listener(rawLocation, history.action);
     };
@@ -23,10 +24,9 @@ export const syncHistoryWithStore = (history, store) => {
 
     listener(store.location, history.action);
 
-    return () => {
-      unsubscribeFromStore();
-    };
+    return unsubscribeFromStore;
   };
+
   const unsubscribe = () => unsubscribeFromHistory();
 
   history.subscribe = subscribe;
