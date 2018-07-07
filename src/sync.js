@@ -13,7 +13,7 @@ export const syncHistoryWithStore = (history, store) => {
   handleLocationChange(history.location);
 
   const subscribe = (listener) => {
-    const onStoreChange = (change) => {
+    const onStoreChange = () => {
       const rawLocation = { ...store.location };
       listener(rawLocation, history.action);
     };
@@ -23,14 +23,11 @@ export const syncHistoryWithStore = (history, store) => {
 
     listener(store.location, history.action);
 
-    return () => {
-      unsubscribeFromStore();
-    };
+    return unsubscribeFromStore;
   };
-  const unsubscribe = () => unsubscribeFromHistory();
 
   history.subscribe = subscribe;
-  history.unsubscribe = unsubscribe;
+  history.unsubscribe = unsubscribeFromHistory;
 
   return history;
 };
