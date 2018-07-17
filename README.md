@@ -103,7 +103,7 @@ There is a React Router 4 documentation page for information on this issue:
 https://github.com/ReactTraining/react-router/blob/master/packages/react-router/docs/guides/blocked-updates.md
 
 To fix problems like this, try wrapping components which are being "blocked" with React Router's `withRouter` higher
-order component should help, depdending on the case.
+order component should help, depending on the case.
 
 Refer to the link above for more information on this solution, and some alternatives.
 
