@@ -85,6 +85,10 @@ export default class App extends Component {
 }
 ```
 
+### HashRouter
+
+You can replace `history/createBrowserHistory` with `history/createHashHistory` in the example above to use hash routes instead of HTML5 routing.
+
 ### Typescript
 
 If you are using typescript - the built in typings for this project depend on
