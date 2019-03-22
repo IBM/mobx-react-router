@@ -7,39 +7,21 @@ const env = process.env.NODE_ENV || 'development';
 const isDev = env === 'development';
 const shouldMinify = Boolean(process.env.MINIFY);
 
-let outputFile;
-
-const plugins = [
-  new webpack.DefinePlugin({
-    'process.env.NODE_ENV': JSON.stringify(env)
-  }),
-  new webpack.optimize.OccurrenceOrderPlugin()
-];
-
-if (shouldMinify) {
-  plugins.push(new webpack.optimize.UglifyJsPlugin(
-    {
-      minimize: true,
-      compress: {
-        warnings: false
-      },
-      mangle: true
-    }
-  ));
-  outputFile = 'mobx-react-router.min.js';
-} else {
-  outputFile = 'mobx-react-router.js';
-}
-
 module.exports = {
+  mode: isDev ? 'development' : 'production',
   devtool: isDev ? 'source-map' : false,
   entry: [path.resolve(__dirname, 'index.js')],
   output: {
     path: path.resolve(__dirname, 'dist'),
-    filename: outputFile,
+    filename: shouldMinify
+      ? 'mobx-react-router.min.js'
+      : 'mobx-react-router.js',
     library: libraryName,
     libraryTarget: 'umd',
     umdNamedDefine: true
+  },
+  optimization: {
+    minimize: shouldMinify
   },
   externals: [
     {
@@ -52,18 +34,26 @@ module.exports = {
     }
   ],
   module: {
-    loaders: [
+    rules: [
       {
         test: /\.js$/,
         exclude: /node_modules/,
-        loaders: [
-          'babel-loader?cacheDirectory'
-        ]
+        use: {
+          loader: 'babel-loader?cacheDirectory=true',
+          options: {
+            presets: ['@babel/preset-env']
+          }
+        }
       }
     ]
   },
   resolve: {
     extensions: ['.js']
   },
-  plugins: plugins
+  plugins: [
+    new webpack.DefinePlugin({
+      'process.env.NODE_ENV': JSON.stringify(env)
+    }),
+    new webpack.optimize.OccurrenceOrderPlugin()
+  ],
 };
