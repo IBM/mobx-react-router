@@ -1,4 +1,4 @@
-import createMemoryHistory from 'history/createMemoryHistory';
+import { createMemoryHistory } from 'history';
 import { RouterStore, syncHistoryWithStore } from '../index';
 
 let history, memoryHistory, routerStore;
@@ -84,7 +84,7 @@ describe('syncing', () => {
     expect(historyListener.mock.calls.length).toBe(2);
   });
 
-  it('provdides a way to unsubscribe from store and history', () => {
+  it('provides a way to unsubscribe from store and history', () => {
     const historyListener = jest.fn();
     history.subscribe(historyListener);
 
