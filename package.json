@@ -75,6 +75,6 @@
   },
   "peerDependencies": {
     "mobx": "^3.0.0 || ^4.0.0 || ^5.0.0",
-    "react-router": "4.x"
+    "react-router": "^4.0.0 || ^5.0.0"
   }
 }
