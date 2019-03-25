@@ -18,7 +18,8 @@ module.exports = {
       : 'mobx-react-router.js',
     library: libraryName,
     libraryTarget: 'umd',
-    umdNamedDefine: true
+    umdNamedDefine: true,
+    globalObject: 'this'
   },
   optimization: {
     minimize: shouldMinify
