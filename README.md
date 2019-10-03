@@ -129,6 +129,9 @@ And the following [history methods](https://github.com/mjackson/history#navigati
 - **goBack()**
 - **goForward()**
 
+Starting from react-router 4, you can also include the state when pushing to history
+- **push(*path, [state]*)**
+
 ### syncHistoryWithStore(*history*, *store*)
 
 - `history` - A variant of a history object, usually `browserHistory`

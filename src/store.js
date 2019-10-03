@@ -21,8 +21,8 @@ export class RouterStore {
   /*
    * History methods
    */
-  push = (location) => {
-    this.history.push(location);
+  push = (location, state) => {
+    this.history.push(location, state);
   }
   replace = (location) => {
     this.history.replace(location);
