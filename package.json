@@ -1,7 +1,8 @@
 {
-  "name": "mobx-react-router",
+  "name": "@superwf/mobx-react-router",
   "description": "Keep your MobX state in sync with react-router",
   "main": "lib/index.js",
+  "version": "6.0.0",
   "unpkg": "dist/mobx-react-router.js",
   "browser": "dist/mobx-react-router.js",
   "types": "./module/index.d.ts",
@@ -37,14 +38,15 @@
   },
   "files": [
     "dist",
+    "module",
+    "lib",
     "LICENSE",
     "package.json",
-    "README.md",
-    "types.d.ts"
+    "README.md"
   ],
   "repository": {
     "type": "git",
-    "url": "https://github.com/alisd23/mobx-react-router.git"
+    "url": "https://github.com/superwf/mobx-react-router.git"
   },
   "keywords": [
     "react",
@@ -101,8 +103,8 @@
     "webpack-cli": "^3.3.0"
   },
   "peerDependencies": {
-    "mobx": "^3.0.0 || ^4.0.0 || ^5.0.0",
-    "react-router": "^4.0.0 || ^5.0.0"
+    "mobx": "^5.0.0 || ^6.0.0",
+    "react-router": "^5.0.0 || ^6.0.0"
   },
   "dependencies": {
     "mobx-react-lite": "^3.0.1"
