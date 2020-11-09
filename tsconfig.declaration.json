@@ -1,0 +1,10 @@
+{
+  "extends": "./tsconfig.json",
+  "compilerOptions": {
+    "outDir": "./module",
+    "noEmit": false,
+    "declaration": true
+  },
+  "files": ["src/index.ts"],
+  "include": ["src"]
+}

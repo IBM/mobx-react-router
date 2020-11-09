@@ -1,5 +1,5 @@
 import { createMemoryHistory } from 'history';
-import { RouterStore, syncHistoryWithStore } from '../index';
+import { RouterStore, syncHistoryWithStore } from '../src/index';
 
 let history, memoryHistory, routerStore;
 

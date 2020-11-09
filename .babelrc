@@ -1,7 +1,6 @@
 {
   "presets": [
-    "@babel/preset-react",
-    "@babel/preset-env",
+    "babel-preset-react-app",
   ],
   "plugins": [
     ["@babel/plugin-proposal-decorators", { "legacy": true }],

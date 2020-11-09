@@ -2,3 +2,5 @@ node_modules
 dist
 __test__/coverage
 npm-debug*
+module
+lib

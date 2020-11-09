@@ -1,15 +1,13 @@
 import path from 'path';
 import * as ts from 'typescript';
 
-beforeEach(() => {
-  jasmine.addMatchers({
-    toBeEmpty: () => ({
-      compare: (actual, expected) => ({
-        pass: actual.length === 0,
-        message: 'Expected empty, but found ' + JSON.stringify(actual, null, 2)
-      })
-    })
-  });
+expect.extend({
+  toBeEmpty(received, expected) {
+    return {
+      message: () => 'Expected empty, but found ' + JSON.stringify(received, null, 2),
+      pass: received.length === 0
+    };
+  }
 });
 
 describe('types', () => {

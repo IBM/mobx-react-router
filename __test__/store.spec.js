@@ -1,4 +1,4 @@
-import { RouterStore } from '../index';
+import { RouterStore, syncHistoryWithStore } from '../src/index';
 
 let mockHistory, store;
 
@@ -8,10 +8,12 @@ beforeEach(() => {
     replace: jest.fn(),
     go: jest.fn(),
     goBack: jest.fn(),
-    goForward: jest.fn()
+    goForward: jest.fn(),
+    listen: jest.fn(),
+    subscribe: jest.fn()
   };
   store = new RouterStore();
-  store.history = mockHistory;
+  syncHistoryWithStore(mockHistory, store);
 });
 
 describe('store', () => {

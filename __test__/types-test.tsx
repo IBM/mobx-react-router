@@ -1,20 +1,21 @@
 // This contains sample code which tests the typings. This code does not run, but it is type-checked
+import * as React from 'react';
 import { Router } from 'react-router';
 import { History, Location, createBrowserHistory, createMemoryHistory } from 'history';
-import { RouterStore, SynchronizedHistory, syncHistoryWithStore } from '../';
+import { RouterStore, SynchronizedHistory, syncHistoryWithStore } from '../src';
 
 const routerStore: RouterStore = new RouterStore();
 const browserHistory: History = createBrowserHistory();
 const history: SynchronizedHistory = syncHistoryWithStore(browserHistory, routerStore);
 
 {
-  { <Router history={history} /> }
-  { <Router history={browserHistory} /> }
-  { <Router history={routerStore.history} /> }
-  { <Router history={createMemoryHistory()} /> }
-  { <Router history={createBrowserHistory()} /> }
-  { <Router history={syncHistoryWithStore(createBrowserHistory(), new RouterStore())} /> }
-  { <Router history={syncHistoryWithStore(createMemoryHistory(), new RouterStore())} /> }
+  { <Router history={history} />; }
+  { <Router history={browserHistory} />; }
+  { <Router history={routerStore.history} />; }
+  { <Router history={createMemoryHistory()} />; }
+  { <Router history={createBrowserHistory()} />; }
+  { <Router history={syncHistoryWithStore(createBrowserHistory(), new RouterStore())} />; }
+  { <Router history={syncHistoryWithStore(createMemoryHistory(), new RouterStore())} />; }
 }
 
 {
@@ -43,12 +44,12 @@ const history: SynchronizedHistory = syncHistoryWithStore(browserHistory, router
 }
 
 {
-  const { pathname, hash, key, search, state } = routerStore.location;
+  const { pathname, hash, key, state } = routerStore.location;
   routerStore.push('path/to/location');
-  routerStore.push({ pathname, hash, key, state });
+  routerStore.push({ pathname, hash, key, state } as Location);
   routerStore.go(-1);
   routerStore.goBack();
   routerStore.goForward();
   routerStore.replace('path/to/replace');
-  routerStore.replace({ pathname, hash, key, state });
+  routerStore.replace({ pathname, hash, key, state } as Location);
 }
