@@ -1,6 +1,8 @@
-import type { History, LocationListener, UnregisterCallback } from 'history';
+import type { History, Listener, State } from 'history'
+
+type UnregisterCallback = ReturnType<History['listen']>
 
 export interface SynchronizedHistory extends History {
-  subscribe: (listener: LocationListener) => UnregisterCallback
+  subscribe: (listener: Listener<State>) => UnregisterCallback
   unsubscribe: UnregisterCallback
 }

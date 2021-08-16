@@ -2,7 +2,7 @@
   "extends": ["standard", "standard-react"],
   "parser": "@typescript-eslint/parser",
   "rules": {
-    "semi": [1, "always"],
+    "semi": [1, "never"],
     "camelcase": [0],
     "no-return-assign": [0],
     "no-undef": [0],

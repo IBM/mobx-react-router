@@ -1,26 +1,40 @@
-import type { History, Location } from 'history';
-import { observable, action, makeObservable } from 'mobx';
+import type { History, Location, Listener, Update, State } from 'history'
+import { Action } from 'history'
+import { observable, action, makeObservable } from 'mobx'
 
-import type { SynchronizedHistory } from './type';
+type UnregisterCallback = ReturnType<History['listen']>
 
 export class RouterStore {
-  public history: SynchronizedHistory
+  public history: History
 
-  public location: Location = {
+  public state: Update<State> = {
+    action: Action.Pop,
+    location: {
+      key: 'default',
+      pathname: '',
+      search: '',
+      state: {},
+      hash: ''
+    }
+  }
+
+  public location: Location<State> = {
+    key: 'default',
     pathname: '',
     search: '',
-    state: '',
+    state: {},
     hash: ''
   }
 
   constructor() {
     makeObservable(this, {
       location: observable
-    });
+    })
   }
 
-  public updateLocation = action((newState: Location) => {
-    this.location = newState;
+  public updateState = action((newState: Update<State>) => {
+    this.state = newState
+    this.location = newState.location
   })
 
   /*
@@ -29,6 +43,9 @@ export class RouterStore {
   public push: History['push']
   public replace: History['replace']
   public go: History['go']
-  public goBack: History['goBack']
-  public goForward: History['goForward']
+  public back: History['back']
+  public forward: History['forward']
+
+  subscribe: (listener: Listener<State>) => UnregisterCallback
+  stopSyncWithHistory: UnregisterCallback
 }
