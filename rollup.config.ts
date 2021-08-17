@@ -1,10 +1,10 @@
-import babel from '@rollup/plugin-babel';
-import commonjs from '@rollup/plugin-commonjs';
-import nodeResolve from '@rollup/plugin-node-resolve';
-import type { RollupOptions } from 'rollup';
-import { terser, Options } from 'rollup-plugin-terser';
+import babel from '@rollup/plugin-babel'
+import commonjs from '@rollup/plugin-commonjs'
+import nodeResolve from '@rollup/plugin-node-resolve'
+import type { RollupOptions } from 'rollup'
+import { terser, Options } from 'rollup-plugin-terser'
 
-const extensions = ['.js', '.jsx', '.ts', '.tsx'];
+const extensions = ['.js', '.jsx', '.ts', '.tsx']
 
 const terserConfig = (minify: boolean): Options => {
   return minify
@@ -30,8 +30,8 @@ const terserConfig = (minify: boolean): Options => {
         },
         module: true,
         mangle: false
-      };
-};
+      }
+}
 
 /** @type {import('rollup').RollupOptions} */
 const option: RollupOptions = {
@@ -43,6 +43,10 @@ const option: RollupOptions = {
       preferConst: true,
       sourcemap: true,
       name: 'MobxReactRouter',
+      globals: {
+        mobx: 'mobx',
+        history: 'HistoryLibrary'
+      },
       plugins: [terser(terserConfig(false))]
     },
     {
@@ -51,6 +55,10 @@ const option: RollupOptions = {
       preferConst: true,
       sourcemap: true,
       name: 'MobxReactRouter',
+      globals: {
+        mobx: 'mobx',
+        history: 'HistoryLibrary'
+      },
       plugins: [terser(terserConfig(true))]
     },
     {
@@ -88,6 +96,6 @@ const option: RollupOptions = {
     }),
     commonjs()
   ]
-};
+}
 
-export default option;
+export default option
