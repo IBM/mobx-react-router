@@ -55,7 +55,6 @@
     "@rollup/plugin-commonjs": "^16.0.0",
     "@rollup/plugin-node-resolve": "^10.0.0",
     "@types/jest": "^27.0.1",
-    "@types/react-router": "^4.0.2",
     "@typescript-eslint/eslint-plugin": "^4.6.1",
     "@typescript-eslint/parser": "^4.6.1",
     "babel-eslint": "^10.1.0",
@@ -75,7 +74,6 @@
     "jest": "^27.0.6",
     "mobx-react-lite": "^3.0.0",
     "react": "^17.0.1",
-    "react-router": "^5.2.0",
     "rimraf": "^2.5.4",
     "rollup": "^2.33.1",
     "rollup-plugin-terser": "^7.0.2",
@@ -86,8 +84,7 @@
     "webpack-cli": "^3.3.0"
   },
   "peerDependencies": {
-    "mobx": "^6.0.0",
-    "react-router": "^5.0.0"
+    "mobx": "^6.0.0"
   },
   "dependencies": {
     "history": "^5.0.1",

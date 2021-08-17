@@ -4,3 +4,4 @@ __test__/coverage
 npm-debug*
 module
 lib
+*.log

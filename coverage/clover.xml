@@ -1,43 +1,33 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<coverage generated="1629115044633" clover="3.2.0">
-  <project timestamp="1629115044633" name="All files">
-    <metrics statements="26" coveredstatements="21" conditionals="0" coveredconditionals="0" methods="6" coveredmethods="4" elements="32" coveredelements="25" complexity="0" loc="26" ncloc="26" packages="1" files="4" classes="4"/>
-    <file name="index.ts" path="/mnt/sdb/nodes/mobx-react-router/src/index.ts">
+<coverage generated="1629198315750" clover="3.2.0">
+  <project timestamp="1629198315750" name="All files">
+    <metrics statements="19" coveredstatements="19" conditionals="0" coveredconditionals="0" methods="6" coveredmethods="6" elements="25" coveredelements="25" complexity="0" loc="19" ncloc="19" packages="1" files="3" classes="3"/>
+    <file name="index.ts" path="/home/wangfan/projects/mobx-react-router/src/index.ts">
       <metrics statements="0" coveredstatements="0" conditionals="0" coveredconditionals="0" methods="0" coveredmethods="0"/>
     </file>
-    <file name="store.ts" path="/mnt/sdb/nodes/mobx-react-router/src/store.ts">
-      <metrics statements="6" coveredstatements="6" conditionals="0" coveredconditionals="0" methods="2" coveredmethods="2"/>
-      <line num="12" count="1" type="stmt"/>
-      <line num="23" count="1" type="stmt"/>
-      <line num="32" count="1" type="stmt"/>
-      <line num="37" count="1" type="stmt"/>
-      <line num="38" count="1" type="stmt"/>
-      <line num="39" count="1" type="stmt"/>
+    <file name="store.ts" path="/home/wangfan/projects/mobx-react-router/src/store.ts">
+      <metrics statements="19" coveredstatements="19" conditionals="0" coveredconditionals="0" methods="6" coveredmethods="6"/>
+      <line num="10" count="4" type="stmt"/>
+      <line num="22" count="8" type="stmt"/>
+      <line num="26" count="4" type="stmt"/>
+      <line num="27" count="4" type="stmt"/>
+      <line num="28" count="4" type="stmt"/>
+      <line num="29" count="4" type="stmt"/>
+      <line num="30" count="4" type="stmt"/>
+      <line num="31" count="4" type="stmt"/>
+      <line num="32" count="4" type="stmt"/>
+      <line num="41" count="4" type="stmt"/>
+      <line num="42" count="5" type="stmt"/>
+      <line num="43" count="5" type="stmt"/>
+      <line num="45" count="5" type="stmt"/>
+      <line num="50" count="5" type="stmt"/>
+      <line num="51" count="2" type="stmt"/>
+      <line num="52" count="2" type="stmt"/>
+      <line num="56" count="11" type="stmt"/>
+      <line num="59" count="4" type="stmt"/>
+      <line num="60" count="11" type="stmt"/>
     </file>
-    <file name="sync.ts" path="/mnt/sdb/nodes/mobx-react-router/src/sync.ts">
-      <metrics statements="20" coveredstatements="15" conditionals="0" coveredconditionals="0" methods="4" coveredmethods="2"/>
-      <line num="8" count="1" type="stmt"/>
-      <line num="10" count="1" type="stmt"/>
-      <line num="11" count="1" type="stmt"/>
-      <line num="12" count="1" type="stmt"/>
-      <line num="13" count="1" type="stmt"/>
-      <line num="14" count="1" type="stmt"/>
-      <line num="15" count="1" type="stmt"/>
-      <line num="18" count="1" type="stmt"/>
-      <line num="19" count="1" type="stmt"/>
-      <line num="22" count="1" type="stmt"/>
-      <line num="23" count="1" type="stmt"/>
-      <line num="28" count="1" type="stmt"/>
-      <line num="30" count="0" type="stmt"/>
-      <line num="31" count="0" type="stmt"/>
-      <line num="32" count="0" type="stmt"/>
-      <line num="35" count="0" type="stmt"/>
-      <line num="37" count="0" type="stmt"/>
-      <line num="40" count="1" type="stmt"/>
-      <line num="41" count="1" type="stmt"/>
-      <line num="43" count="1" type="stmt"/>
-    </file>
-    <file name="type.ts" path="/mnt/sdb/nodes/mobx-react-router/src/type.ts">
+    <file name="sync.ts" path="/home/wangfan/projects/mobx-react-router/src/sync.ts">
       <metrics statements="0" coveredstatements="0" conditionals="0" coveredconditionals="0" methods="0" coveredmethods="0"/>
     </file>
   </project>
