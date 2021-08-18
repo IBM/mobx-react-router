@@ -40,17 +40,13 @@ export class RouterStore {
     */
     this.subscribe = listener => {
       const unlisten = history.listen(listener)
-      console.log(unlisten)
 
       listener({
         action: history.action,
         location: history.location
       })
 
-      return () => {
-        console.log('unlisten')
-        unlisten()
-      }
+      return unlisten
     }
 
     this.stopSyncWithHistory = this.subscribe(state => this.updateState(state))

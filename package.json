@@ -2,7 +2,7 @@
   "name": "@superwf/mobx-react-router",
   "description": "Keep your MobX state in sync with react-router",
   "main": "lib/index.js",
-  "version": "7.0.1",
+  "version": "7.0.2",
   "unpkg": "dist/mobx-react-router.js",
   "browser": "dist/mobx-react-router.js",
   "types": "./module/index.d.ts",
@@ -42,9 +42,9 @@
   "author": "Ali Sheehan-Dare - @im_alisd",
   "license": "MIT",
   "bugs": {
-    "url": "https://github.com/alisd23/mobx-react-router/issues"
+    "url": "https://github.com/superwf/mobx-react-router/issues"
   },
-  "homepage": "https://github.com/alisd23/mobx-react-router#readme",
+  "homepage": "https://github.com/superwf/mobx-react-router#readme",
   "devDependencies": {
     "@babel/core": "^7.4.0",
     "@babel/plugin-proposal-class-properties": "^7.4.0",
