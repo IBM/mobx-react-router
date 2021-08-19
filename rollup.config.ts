@@ -2,36 +2,36 @@ import babel from '@rollup/plugin-babel'
 import commonjs from '@rollup/plugin-commonjs'
 import nodeResolve from '@rollup/plugin-node-resolve'
 import type { RollupOptions } from 'rollup'
-import { terser, Options } from 'rollup-plugin-terser'
+import type { Options } from 'rollup-plugin-terser'
+import { terser } from 'rollup-plugin-terser'
 
 const extensions = ['.js', '.jsx', '.ts', '.tsx']
 
-const terserConfig = (minify: boolean): Options => {
-  return minify
+const terserConfig = (minify: boolean): Options =>
+  minify
     ? {
         mangle: true,
         module: false,
         format: {
           beautify: false,
           comments: false,
-          ecma: 2020
-        }
+          ecma: 2020,
+        },
       }
     : {
         compress: {
           /* eslint-disable camelcase */
-          dead_code: true
+          dead_code: true,
         },
         format: {
           beautify: true,
           comments: true,
           ecma: 2020,
-          indent_level: 2
+          indent_level: 2,
         },
         module: true,
-        mangle: false
+        mangle: false,
       }
-}
 
 /** @type {import('rollup').RollupOptions} */
 const option: RollupOptions = {
@@ -45,9 +45,9 @@ const option: RollupOptions = {
       name: 'MobxReactRouter',
       globals: {
         mobx: 'mobx',
-        history: 'HistoryLibrary'
+        history: 'HistoryLibrary',
       },
-      plugins: [terser(terserConfig(false))]
+      plugins: [terser(terserConfig(false))],
     },
     {
       file: 'dist/mobx-react-router.min.js',
@@ -57,9 +57,9 @@ const option: RollupOptions = {
       name: 'MobxReactRouter',
       globals: {
         mobx: 'mobx',
-        history: 'HistoryLibrary'
+        history: 'HistoryLibrary',
       },
-      plugins: [terser(terserConfig(true))]
+      plugins: [terser(terserConfig(true))],
     },
     {
       dir: 'lib',
@@ -67,7 +67,7 @@ const option: RollupOptions = {
       format: 'cjs',
       preferConst: true,
       sourcemap: true,
-      plugins: [terser(terserConfig(false))]
+      plugins: [terser(terserConfig(false))],
     },
     {
       dir: 'module',
@@ -75,27 +75,24 @@ const option: RollupOptions = {
       format: 'module',
       preferConst: true,
       sourcemap: true,
-      plugins: [terser(terserConfig(false))]
-    }
+      plugins: [terser(terserConfig(false))],
+    },
   ],
-  external: [
-    'history',
-    'mobx'
-  ],
+  external: ['history', 'mobx'],
 
   plugins: [
     nodeResolve({
       extensions,
-      preferBuiltins: true
+      preferBuiltins: true,
     }),
     babel({
       babelHelpers: 'runtime',
       exclude: 'node_modules/**',
       presets: ['react-app'],
-      extensions
+      extensions,
     }),
-    commonjs()
-  ]
+    commonjs(),
+  ],
 }
 
 export default option

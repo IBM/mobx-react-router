@@ -2,7 +2,7 @@
   "name": "@superwf/mobx-react-router",
   "description": "Keep your MobX state in sync with react-router",
   "main": "lib/index.js",
-  "version": "7.0.2",
+  "version": "7.1.0",
   "unpkg": "dist/mobx-react-router.js",
   "browser": "dist/mobx-react-router.js",
   "types": "./module/index.d.ts",
@@ -55,6 +55,7 @@
     "@rollup/plugin-commonjs": "^16.0.0",
     "@rollup/plugin-node-resolve": "^10.0.0",
     "@types/jest": "^27.0.1",
+    "@types/react-router-dom": "^5.1.8",
     "@typescript-eslint/eslint-plugin": "^4.29.2",
     "@typescript-eslint/parser": "^4.29.2",
     "babel-eslint": "^10.1.0",
@@ -64,15 +65,19 @@
     "babel-preset-react-app": "^10.0.0",
     "cross-env": "^3.0.0",
     "eslint": "^7.32.0",
+    "eslint-config-airbnb-base": "^14.2.1",
+    "eslint-config-prettier": "^8.3.0",
     "eslint-config-standard": "^16.0.1",
     "eslint-config-standard-react": "^11.0.1",
     "eslint-plugin-import": "^2.22.1",
     "eslint-plugin-node": "^11.1.0",
+    "eslint-plugin-prettier": "^3.4.0",
     "eslint-plugin-promise": "^4.2.1",
     "eslint-plugin-react": "^7.21.5",
     "eslint-plugin-standard": "^4.0.2",
     "jest": "^27.0.6",
     "mobx-react-lite": "^3.0.0",
+    "prettier": "^2.3.2",
     "react": "^17.0.1",
     "rimraf": "^2.5.4",
     "rollup": "^2.33.1",
@@ -88,6 +93,7 @@
   },
   "dependencies": {
     "history": "^5.0.1",
-    "mobx": "^6.3.2"
+    "mobx": "^6.3.2",
+    "path-to-regexp": "^6.2.0"
   }
 }

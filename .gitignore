@@ -6,3 +6,4 @@ module
 lib
 *.log
 coverage
+*.vim

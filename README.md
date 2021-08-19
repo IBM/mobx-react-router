@@ -1,22 +1,31 @@
 # mobx-react-router
 
-## Note 2021-8-16 update v7 for compatible with history v5
+This repo is forked from alisd23/mobx-react-router.
 
-Api changed a lot, please read this.
+Totally rewrite with typescript and has type definition together.
+
+100% tested.
+
+## Breaking Changes
+
+### Note 2021-8-16 update to v7 for compatible with history v5, mobx v6 and path-to-regexp v6.
+
+Since `History` upgrade to V5, history api changed a lot.
+
+So please **READ THIS API**.
 
 Keep your MobX state in sync with react-router via a `RouterStore`.
 
 Router location state is **observable**, so any references to it in `MobX`
-components will cause the component to re-render when the location changes.
 
-Very much inspired by (and copied from) [react-router-redux](https://github.com/reactjs/react-router-redux/tree/master).
+components will cause the component to re-render when the location changes.
 
 - [Installation](#installation)
 - [Usage](#usage)
 - [API](#api)
   - [RouterStore](#routerstore)
 
-V7 is for use with **react-router v5**.
+Note: V7 is for use with **react-router v5**.
 
 ## Installation
 
@@ -24,112 +33,153 @@ V7 is for use with **react-router v5**.
 npm install --save @superwf/mobx-react-router
 ```
 
-```sh
-npm install --save mobx mobx-react react-router
-```
-
 ## Usage
+
+`router.js`
+
+```js
+import { createBrowserHistory } from 'history'
+import { RouterStore } from 'mobx-react-router'
+
+export const router = new RouterStore(browserHistory)
+```
 
 `index.js`
 
 ```js
-import React from 'react';
-import ReactDOM from 'react-dom';
-import createBrowserHistory from 'history/createBrowserHistory';
-import { Provider } from 'mobx-react';
-import { RouterStore } from 'mobx-react-router';
-import { Router } from 'react-router';
-import App from './App';
+import React from 'react'
+import ReactDOM from 'react-dom'
+import { Router } from 'react-router'
+import App from './App'
+import { router } from './router'
 
-const browserHistory = createBrowserHistory();
-const router = new RouterStore(browserHistory);
-
-const stores = {
-  // Key can be whatever you want
-  routing: router,
-  // ...other stores
-};
+const browserHistory = createBrowserHistory()
 
 ReactDOM.render(
-  <Provider {...stores}>
-    <Router history={router.history}>
-      <App />
-    </Router>
-  </Provider>,
+  <Router history={router.history}>
+    <App />
+  </Router>
   document.getElementById('root')
-);
+)
 ```
 
 `App.js`
 
 ```js
-import React, { Component } from 'react';
-import { inject, observer } from 'mobx-react';
+import React, { Component } from 'react'
+import { observer } from 'mobx-react-lite'
+import { router } from './router'
 
-@inject('router')
-@observer
-export default class App extends Component {
-  render() {
-    const { location, push, back } = this.props.router;
-
-    return (
-      <div>
-        <span>Current pathname: {location.pathname}</span>
-        <button onClick={() => push('/test')}>Change url</button>
-        <button onClick={() => back()}>Go Back</button>
-      </div>
-    );
-  }
-}
+export const App = observer(() => {
+  const { location, push, back } = router
+  return (
+    <div>
+    <span>Current pathname: {location.pathname}</span>
+    <button onClick={() => push('/test')}>Change url</button>
+    <button onClick={() => back()}>Go Back</button>
+    </div>
+  )
+})
 ```
 
 ## API
 
 ### RouterStore
 
+#### constructor
+
+param: `history` - A variant of a history object, usually `browserHistory`
+
 ```js
-const browserHistory = createBrowserHistory();
-const store = new RouterStore(browserHistory);
+const browserHistory = createBrowserHistory()
+// or hashHistory or memoryHistory
+const router = new RouterStore(browserHistory)
 ```
 
 A **router store** instance has the following properties:
 
-- `location` (*observable*) - history [location object](https://github.com/mjackson/history#listening)
 - `history` - raw [history API](https://github.com/mjackson/history#properties) object
+- `state` (*observable*) - sync with history state
 
-And the following [history methods](https://github.com/mjackson/history#navigation):
+```js
+{ action: history.action, location: history.location }
+```
+
+- `location` (*observable*) - sync with history location
+
+And the following methods and properties bind to the history instance [history methods](https://github.com/mjackson/history#navigation):
 
 - **push(*path*)**
 - **replace(*path*)**
 - **go(*n*)**
 - **back()**
 - **forward()**
-
-- `history` - A variant of a history object, usually `browserHistory`
-- `store` - An instance of `RouterStore`
+- **location**
 
 returns an *enhanced* history object with the following **additional methods**:
 
 - **subscribe(*listener*)**  
-Subscribes to any changes in the store's `location` observable  
+
+Subscribes to any changes in the store's `location` observable,
+and run the listener at once with current history state.
 **Returns** an unsubscribe function which destroys the listener
 
+#### Additional peoperties 🍧
+
+- **store instance sync with history automatically**  
+
 ```js
-const unsubscribeFromStore = router.subscribe(({ location, action }) => console.log(location.pathname));
-
-history.push('/test1');
-unsubscribeFromStore();
-history.push('/test2');
-
-// Logs
-// 'test1'
+router.push('/test1')
+router.location.pathname // '/test1'
+router.stopSyncWithHistory()
+router.push('/test2') // not sync any more
+router.location.pathname // '/test1'
 ```
 
-- **unsubscribe()**  
-Un-syncs the store from the history.
-The store will **no longer update** when the history changes
+- **subscribe(*listener*) and unsubscribe()**  
 
 ```js
-history.stopSyncWithHistory();
+const stopListen = router.subscribe(({ location }) => console.log(location.pathname))
+router.push('/test1') // output '/test1'
+stopListen()
+router.push('/test2') // no output any more
+```
+
+```js
+history.stopSyncWithHistory()
 // Store no longer updates
+```
+
+************************
+
+**Below is some sugar properties, hope you like them. 🍻🍻🍻**
+
+- **query**
+
+```js
+router.push('/abc?a=1&b=2')
+router.query // { a: '1', b: '2' }
+router.push('/abc?id=1&id=2')
+router.query // { id: ['1', '2'] }
+```
+
+- **hashValue**
+
+```js
+router.push('/abc#xxx')
+router.hashValue // 'xxx'
+```
+
+- **appendPathList**, **prependPathList**, **pathValue**
+
+use appendPathList or prependPathList to add some paths,
+
+**Note** path order is important, because first matched path will return the result.
+
+so use `prependPathList` is some `path` has high priority.
+
+```js
+router.appendPathList('/user/:name')
+router.push('/user/rock')
+router.pathValue // { name: 'rock' }
 ```
