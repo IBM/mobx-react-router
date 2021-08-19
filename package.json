@@ -8,7 +8,7 @@
   "types": "./module/index.d.ts",
   "module": "./module/index.js",
   "scripts": {
-    "lint": "eslint src/*.ts __test__/*.{j,t}s",
+    "lint": "eslint src/*.ts",
     "test": "jest",
     "test-watch": "jest --watch",
     "clean": "rimraf {dist,module,lib} -f",
