@@ -1,3 +1,4 @@
+/* eslint-disable no-param-reassign */
 import type { History, Listener, State, Update } from 'history'
 import { Action } from 'history'
 import { action, computed, makeObservable, observable } from 'mobx'
@@ -30,8 +31,15 @@ export class RouterStore {
     this.push = history.push.bind(history)
     this.replace = history.replace.bind(history)
     this.go = history.go.bind(history)
-    this.back = history.back.bind(history)
-    this.forward = history.forward.bind(history)
+
+    // compatible with old history api
+    const back = history.back.bind(history)
+    const forward = history.forward.bind(history)
+    ;(history as any).goBack = back
+    ;(history as any).goForward = forward
+
+    this.back = back
+    this.forward = forward
 
     // compatible with old history api
     this.goBack = this.back

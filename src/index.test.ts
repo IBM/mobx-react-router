@@ -1,6 +1,5 @@
 import type { History } from 'history'
 import { createMemoryHistory } from 'history'
-import { toJS } from 'mobx'
 
 import { RouterStore } from '.'
 
@@ -140,6 +139,14 @@ describe('router', () => {
 
       router.push('/path2/124/edit/康康')
       expect(router.pathValue).toEqual({})
+    })
+  })
+  describe('compatible old history api', () => {
+    it('goBack and goForward', () => {
+      expect(router.goBack).toBe((router.history as any).goBack)
+      expect(router.back).toBe((router.history as any).goBack)
+      expect(router.goForward).toBe((router.history as any).goForward)
+      expect(router.forward).toBe((router.history as any).goForward)
     })
   })
 })
