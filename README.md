@@ -39,7 +39,7 @@ npm install --save @superwf/mobx-react-router
 
 ```js
 import { createBrowserHistory } from 'history'
-import { RouterStore } from 'mobx-react-router'
+import { RouterStore } from '@superwf/mobx-react-router'
 
 export const router = new RouterStore(browserHistory)
 ```
