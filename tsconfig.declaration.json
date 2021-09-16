@@ -1,10 +1,16 @@
 {
   "extends": "./tsconfig.json",
   "compilerOptions": {
+    "target": "ESNext",
+    "module": "ESNext",
     "outDir": "./module",
-    "noEmit": false,
+    "noEmit": true,
     "declaration": true
   },
-  "files": ["src/index.ts"],
-  "include": ["src"]
+  "files": [
+    "src/index.ts"
+  ],
+  "include": [
+    "src"
+  ]
 }

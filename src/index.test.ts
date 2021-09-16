@@ -141,12 +141,4 @@ describe('router', () => {
       expect(router.pathValue).toEqual({})
     })
   })
-  describe('compatible old history api', () => {
-    it('goBack and goForward', () => {
-      expect(router.goBack).toBe((router.history as any).goBack)
-      expect(router.back).toBe((router.history as any).goBack)
-      expect(router.goForward).toBe((router.history as any).goForward)
-      expect(router.forward).toBe((router.history as any).goForward)
-    })
-  })
 })

@@ -22,6 +22,7 @@ export class RouterStore {
     },
   }
 
+  /** @readonly */
   public get location(): Update<State>['location'] {
     return this.state.location
   }
@@ -35,15 +36,8 @@ export class RouterStore {
     // compatible with old history api
     const back = history.back.bind(history)
     const forward = history.forward.bind(history)
-    ;(history as any).goBack = back
-    ;(history as any).goForward = forward
-
     this.back = back
     this.forward = forward
-
-    // compatible with old history api
-    this.goBack = this.back
-    this.goForward = this.forward
 
     makeObservable(this, {
       state: observable,
@@ -71,7 +65,7 @@ export class RouterStore {
       return unlisten
     }
 
-    this.stopSyncWithHistory = this.subscribe(state => this.updateState(state))
+    this.stopSyncWithHistory = this.subscribe(this.updateState)
   }
 
   public updateState = action((newState: Update<State>) => {
@@ -139,10 +133,18 @@ export class RouterStore {
     return param
   }
 
+  /**
+   * append new path to router.pathList, like '/abc/:name'
+   * Note: the pathList order will affect pathValue
+   * */
   public appendPathList(...pathList: string[]): void {
     this.pathList.push(...pathList)
   }
 
+  /**
+   * preppend new path to router.pathList, like '/abc/:name'
+   * Note: the pathList order will affect pathValue
+   * */
   public prependPathList(...pathList: string[]): void {
     this.pathList.unshift(...pathList)
   }

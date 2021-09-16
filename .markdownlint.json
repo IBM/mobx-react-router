@@ -1,0 +1,9 @@
+{
+  "default": true,
+  "no-hard-tabs": true,
+  "whitespace": false,
+  "no-inline-html": false,
+  "line-length": false,
+  "MD022": false,
+  "MD013": false
+}
