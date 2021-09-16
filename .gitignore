@@ -3,6 +3,7 @@ dist
 __test__/coverage
 npm-debug*
 module
+type
 lib
 *.log
 coverage

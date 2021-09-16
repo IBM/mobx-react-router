@@ -8,7 +8,7 @@
   - [CDN](#cdn)
   - [API](#api)
     - [RouterStore constructor](#routerstore-constructor)
-    - [Instance peoperties](#instance-peoperties)
+    - [Instance properties](#instance-properties)
     - [Instance methods](#instance-methods)
 
 ## Overview
@@ -25,13 +25,13 @@ Totally rewrite with typescript and has type definition together.
 
 Tested 🥳
 
-![Statements](./badges/badge-statements.svg)
+![Statements](./badge/badge-statements.svg)
 
-![Branches](./badges/badge-branches.svg)
+![Branches](./badge/badge-branches.svg)
 
-![Functions](./badges/badge-functions.svg)
+![Functions](./badge/badge-functions.svg)
 
-![Lines](./badges/badge-lines.svg)
+![Lines](./badge/badge-lines.svg)
 
 ## Upgrade note
 
@@ -51,9 +51,11 @@ npm install --save @superwf/mobx-react-router
 
 ## Example
 
+Complete code here: [example](https://github.com/superwf/mobx-react-router-example)
+
 `router.js`
 
-```js
+```javascript
 import { createBrowserHistory } from 'history'
 import { RouterStore } from '@superwf/mobx-react-router'
 
@@ -63,7 +65,7 @@ export const router = new RouterStore(browserHistory)
 
 `index.js`
 
-```js
+```javascript
 import React from 'react'
 import ReactDOM from 'react-dom'
 import { Router } from 'react-router'
@@ -80,7 +82,7 @@ ReactDOM.render(
 
 `App.js`
 
-```js
+```javascript
 import React, { Component } from 'react'
 import { observer } from 'mobx-react-lite'
 import { router } from './router'
@@ -89,9 +91,9 @@ export const App = observer(() => {
   const { location, push, back } = router
   return (
     <div>
-    <span>Current pathname: {location.pathname}</span>
-    <button onClick={() => push('/test')}>go to "/test"</button>
-    <button onClick={back}>Go Back</button>
+      <span>Current pathname: {location.pathname}</span>
+      <button onClick={() => push('/test')}>go to "/test"</button>
+      <button onClick={back}>Go Back</button>
     </div>
   )
 })
@@ -99,14 +101,14 @@ export const App = observer(() => {
 
 ## CDN
 
-- classic global variable mode. use `window.MobxReactRouter`
+- Global var mode mode. Global variable name: `window.MobxReactRouter`
 
-<script type="javascript" src="https://unpkg.com/@superwf/mobx-react-router@latest/dist/mobx-react-router.min.js"></script>
+`<script type="javascript" src="https://unpkg.com/@superwf/mobx-react-router@latest/dist/mobx-react-router.min.js"></script>`
 
 - Es module mode.
 
 ```javascript
-import { RouterStore } from 'https://unpkg.com/@superwf/mobx-react-router@latest/module/index.js'
+import { RouterStore } from 'https://unpkg.com/@superwf/mobx-react-router/module/index.js'
 ```
 
 ## API
@@ -115,7 +117,7 @@ import { RouterStore } from 'https://unpkg.com/@superwf/mobx-react-router@latest
 
 param: `history` - A variant of a history object, usually `browserHistory`
 
-```js
+```javascript
 const browserHistory = createBrowserHistory()
 // or hashHistory or memoryHistory
 const router = new RouterStore(browserHistory)
@@ -128,13 +130,13 @@ A **RouterStore** instance has the following properties:
 - **history** - raw [history API](https://github.com/mjackson/history#properties) object
 - `state` (*observable*) - sync with history state, type as below.
 
-```js
+```javascript
 { action: history.action, location: history.location }
 ```
 
 - **location** (*observable*, *readonly*) - sync with history location
 
-```js
+```javascript
 router.push('/test1')
 router.location.pathname // '/test1'
 ```
@@ -145,7 +147,7 @@ router.location.pathname // '/test1'
 
 - **query** url search object format.
 
-```js
+```javascript
 router.push('/abc?a=1&b=2')
 router.query // { a: '1', b: '2' }
 router.push('/abc?id=1&id=2')
@@ -154,14 +156,14 @@ router.query // { id: ['1', '2'] }
 
 - **hashValue** hash string without `#`.
 
-```js
+```javascript
 router.push('/abc#xxx')
 router.hashValue // 'xxx'
 ```
 
 - **pathValue** extract path parameter to object type, need `pathList` work together.
 
-```js
+```javascript
 router.appendPathList('/user/:name')
 router.push('/user/xxx')
 router.hashValue // 'xxx'
@@ -171,7 +173,7 @@ router.hashValue // 'xxx'
 
 - **stopSyncWithHistory**, stop sync with history any more, once stoped, can not start again.
 
-```js
+```javascript
 router.push('/test1')
 router.location.pathname // '/test1'
 router.stopSyncWithHistory()
@@ -185,7 +187,7 @@ Subscribes to any changes in the store's `location` observable,
 and run the listener at once with current history state.
 **Returns** an unsubscribe function which destroys the listener
 
-```js
+```javascript
 const stopListen = router.subscribe(({ location }) => console.log(location.pathname))
 router.push('/test1') // output '/test1'
 stopListen()
@@ -200,7 +202,7 @@ Append or prepend new paths to `pathList` property,
 
 Use `prependPathList` for some `path` which has high priority.
 
-```js
+```javascript
 router.appendPathList('/user/:name')
 router.push('/user/rock') // match "/user/:name"
 router.pathValue // now get a path param: { name: 'rock' }

@@ -3,14 +3,12 @@
   "compilerOptions": {
     "target": "ESNext",
     "module": "ESNext",
-    "outDir": "./module",
-    "noEmit": true,
+    "outDir": "./type",
+    "noEmit": false,
+    "emitDeclarationOnly": true,
     "declaration": true
   },
-  "files": [
-    "src/index.ts"
-  ],
   "include": [
-    "src"
+    "src/index.ts"
   ]
 }
