@@ -2,7 +2,7 @@
   "name": "@superwf/mobx-react-router",
   "description": "Keep your MobX state in sync with react-router",
   "main": "lib/index.js",
-  "version": "7.3.0",
+  "version": "7.3.1",
   "unpkg": "dist/mobx-react-router.js",
   "browser": "dist/mobx-react-router.js",
   "types": "./type/index.d.ts",
