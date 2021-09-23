@@ -12,7 +12,7 @@
     "test": "jest",
     "test-watch": "jest --watch",
     "badge": "jest-coverage-badges output ./badge",
-    "clean": "rimraf {dist,type,lib} -f",
+    "clean": "rimraf {dist,type,lib,type} -f",
     "build": "cross-env NODE_ENV=production npx rollup -c rollup.config.js",
     "declaration": "cross-env NODE_ENV=production tsc -p tsconfig.declaration.json && eslint --fix type/*.ts --quiet",
     "prepublishOnly": "yarn clean && yarn lint && yarn test && yarn build && yarn declaration && yarn standard-version"
@@ -21,6 +21,7 @@
     "dist",
     "module",
     "lib",
+    "type",
     "LICENSE",
     "package.json",
     "README.md"
