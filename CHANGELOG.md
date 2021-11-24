@@ -2,6 +2,13 @@
 
 All notable changes to this project will be documented in this file. See [standard-version](https://github.com/conventional-changelog/standard-version) for commit guidelines.
 
+## [7.4.0](https://github.com/superwf/mobx-react-router/compare/v7.3.1...v7.4.0) (2021-11-24)
+
+
+### Features
+
+* upgrade history ([9f01338](https://github.com/superwf/mobx-react-router/commit/9f0133860a57fe3bb5622f80b52a8e7bca85727a))
+
 ### [7.3.1](https://github.com/superwf/mobx-react-router/compare/v7.3.0...v7.3.1) (2021-09-23)
 
 ## [7.3.0](https://github.com/superwf/mobx-react-router/compare/v4.1.0...v7.3.0) (2021-09-17)
