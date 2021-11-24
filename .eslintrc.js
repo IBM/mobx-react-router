@@ -31,7 +31,6 @@ module.exports = {
         singleQuote: true,
         semi: false,
         trailingComma: 'all',
-        jsxBracketSameLine: false,
         endOfLine: 'auto',
         arrowParens: 'avoid',
       },

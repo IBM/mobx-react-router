@@ -1,5 +1,5 @@
 /* eslint-disable no-param-reassign */
-import type { History, Listener, State, Update } from 'history'
+import type { History, Listener, Update } from 'history'
 import { Action } from 'history'
 import { action, computed, makeObservable, observable } from 'mobx'
 import { match } from 'path-to-regexp'
@@ -11,7 +11,7 @@ export class RouterStore {
 
   public history: History
 
-  public state: Update<State> = {
+  public state: Update = {
     action: Action.Pop,
     location: {
       key: 'default',
@@ -23,7 +23,7 @@ export class RouterStore {
   }
 
   /** @readonly */
-  public get location(): Update<State>['location'] {
+  public get location(): Update['location'] {
     return this.state.location
   }
 
@@ -68,7 +68,7 @@ export class RouterStore {
     this.stopSyncWithHistory = this.subscribe(this.updateState)
   }
 
-  public updateState = action((newState: Update<State>) => {
+  public updateState = action((newState: Update) => {
     this.state = {
       action: newState.action,
       location: { ...newState.location },
@@ -166,7 +166,7 @@ export class RouterStore {
 
   public goForward: History['forward']
 
-  subscribe: (listener: Listener<State>) => UnregisterCallback
+  subscribe: (listener: Listener) => UnregisterCallback
 
   stopSyncWithHistory: UnregisterCallback
 }
