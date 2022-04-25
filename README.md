@@ -41,7 +41,7 @@ Since `History` upgrade to V5, its api changed a lot.
 
 So please [**READ API**](#api) part again even you have used mobx-react-router.
 
-💡 **Note** if you need to work woth old version react-router and history, install v6 by `npm install --save @superwf/mobx-react-router@6.0.0`
+💡 **Note** if you need to work with old version react-router and history, install v6 by `npm install --save @superwf/mobx-react-router@6.0.0`
 
 ## Installation
 
