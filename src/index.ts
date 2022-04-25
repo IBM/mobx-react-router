@@ -32,12 +32,8 @@ export class RouterStore {
     this.push = history.push.bind(history)
     this.replace = history.replace.bind(history)
     this.go = history.go.bind(history)
-
-    // compatible with old history api
-    const back = history.back.bind(history)
-    const forward = history.forward.bind(history)
-    this.back = back
-    this.forward = forward
+    this.back = history.back.bind(history)
+    this.forward = history.forward.bind(history)
 
     makeObservable(this, {
       state: observable,
@@ -162,9 +158,9 @@ export class RouterStore {
 
   public forward: History['forward']
 
-  public goBack: History['back']
+  // public goBack: History['back']
 
-  public goForward: History['forward']
+  // public goForward: History['forward']
 
   subscribe: (listener: Listener) => UnregisterCallback
 
