@@ -51,7 +51,9 @@ npm install --save @superwf/mobx-react-router
 
 ## Example
 
-Complete code here: [example](https://github.com/superwf/mobx-react-router-example)
+### ReactRouter V5 example
+
+Complete project see here: [v5 example](https://github.com/superwf/mobx-react-router-example/tree/react-router-5)
 
 `router.js`
 
@@ -63,40 +65,125 @@ const browserHistory = createBrowserHistory()
 export const router = new RouterStore(browserHistory)
 ```
 
+`App.js`
+
+```javascript
+import { observer } from 'mobx-react-lite'
+import { router } from "./router";
+import { Router, Route, Switch, Link } from "react-router-dom"
+
+export const App = observer(() => {
+  return (
+    <Router history={router.history}>
+      <div className="App">
+        <main>
+          <p>
+            <Link to="/pagea">go to page A</Link>
+            <br /><br />
+            <Link to="/pageb">go to page b</Link>
+          </p>
+          <Switch location={router.location}>
+            <Route path="/pagea" component={() => <div>page A content</div>} />
+            <Route path="/pageb" component={() => <div>page B content</div>} />
+          </Switch>
+        </main>
+      </div>
+    </Router>
+  );
+})
+```
+
 `index.js`
 
 ```javascript
-import React from 'react'
 import ReactDOM from 'react-dom'
-import { Router } from 'react-router'
 import App from './App'
-import { router } from './router'
 
 ReactDOM.render(
-  <Router history={router.history}>
-    <App />
-  </Router>
+  <App />,
   document.getElementById('root')
 )
 ```
 
-`App.js`
+### ReactRouter V6 example
+
+Complete project see here: [v6 example](https://github.com/superwf/mobx-react-router-example)
+
+`router.js`, same as react-router v5
 
 ```javascript
-import React, { Component } from 'react'
-import { observer } from 'mobx-react-lite'
-import { router } from './router'
+import { createBrowserHistory } from 'history'
+import { RouterStore } from '@superwf/mobx-react-router'
 
-export const App = observer(() => {
-  const { location, push, back } = router
+const browserHistory = createBrowserHistory()
+export const router = new RouterStore(browserHistory)
+```
+
+`RouteWrapper.js`
+
+```javascript
+import { router } from "./router";
+import { Routes, Route } from "react-router-dom"
+
+router.appendPathList('/user/:name')
+
+const PageA = () => <h1>Route Page A Content</h1>
+const PageB = () => <h1>Route Page B Content</h1>
+
+export const RouteWrapper = () => {
   return (
-    <div>
-      <span>Current pathname: {location.pathname}</span>
-      <button onClick={() => push('/test')}>go to "/test"</button>
-      <button onClick={back}>Go Back</button>
+    <div className="App">
+      <Routes>
+        <Route path="/pagea" element={<PageA />} />
+        <Route path="/pageb" element={<PageB />} />
+      </Routes>
     </div>
-  )
+  );
+}
+```
+
+`Main.jsx`
+
+```javascript
+import * as React from "react"
+import { observer } from 'mobx-react-lite'
+import { Link } from "react-router-dom"
+import { Router, Outlet } from "react-router-dom"
+import { RouteWrapper } from "./RouteWrapper"
+import { router } from "./router";
+
+export const Main = observer(() => {
+  const { location, push, back, query, hashValue, pathValue } = router
+  let [state, setState] = React.useState({
+    action: router.history.action,
+    location: router.history.location,
+  }); 
+  React.useLayoutEffect(() => router.subscribe(setState), []);
+  return <Router location={state.location} navigationType={state.action} navigator={router.history}>
+    <main>
+      <header className="App-header">
+        <p>React Router 6 example</p>
+        <Link to="/pagea">go to Page A</Link>
+        <br /><br />
+        <Link to="/pageb">go to Page B</Link>
+      </header>
+      <RouteWrapper />
+      <Outlet />
+    </main>
+  </Router>
 })
+```
+
+`index.js`
+
+```javascript
+import ReactDOM from 'react-dom';
+import { Main } from './Main';
+
+ReactDOM.render(
+  <Main />,
+  document.getElementById('root')
+);
 ```
 
 ## CDN

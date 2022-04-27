@@ -158,10 +158,6 @@ export class RouterStore {
 
   public forward: History['forward']
 
-  // public goBack: History['back']
-
-  // public goForward: History['forward']
-
   subscribe: (listener: Listener) => UnregisterCallback
 
   stopSyncWithHistory: UnregisterCallback
