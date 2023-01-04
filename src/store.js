@@ -25,8 +25,8 @@ export class RouterStore {
     this.history.replace(location, state);
   };
 
-  @action.bound go = (n) => {
-    this.history.go(n);
+  @action.bound go = (iState) => {
+    this.history.go(iState);
   };
 
   @action.bound goBack = () => {
