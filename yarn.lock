@@ -5346,18 +5346,12 @@ json-stringify-safe@^5.0.1, json-stringify-safe@~5.0.1:
   integrity "sha1-Epai1Y/UXxmg9s4B1lcB4sc1tus= sha512-ZClg6AaYvamvYEE82d3Iyd3vSSIjQ+odgjaTzRuO3s7toCdFKczob2i0zCh7JE8kWn17yvAWhUVxvqGwUalsRA=="
 
 json5@^1.0.1:
-  version "1.0.1"
-  resolved "https://registry.npmjs.org/json5/-/json5-1.0.1.tgz"
+  version "1.0.2"
+  resolved "https://registry.yarnpkg.com/json5/-/json5-1.0.2.tgz#63d98d60f21b313b77c4d6da18bfa69d80e1d593"
   dependencies:
     minimist "^1.2.0"
 
-json5@^2.1.0:
-  version "2.1.0"
-  resolved "https://registry.npmjs.org/json5/-/json5-2.1.0.tgz"
-  dependencies:
-    minimist "^1.2.0"
-
-json5@^2.1.2, json5@^2.2.2:
+json5@^2.1.0, json5@^2.1.2, json5@^2.2.2:
   version "2.2.3"
   resolved "https://registry.yarnpkg.com/json5/-/json5-2.2.3.tgz#78cd6f1a19bdc12b73db5ad0c61efd66c1e29283"
 
