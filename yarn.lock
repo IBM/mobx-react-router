@@ -3169,9 +3169,9 @@ eslint-config-standard@^6.0.1:
   resolved "https://registry.npmjs.org/eslint-config-standard/-/eslint-config-standard-6.2.1.tgz"
   integrity "sha1-06aKr8cZFjnn7kQec0hzkCY1QpI= sha512-CIPBOuTRFzXaLTKtbGJi1pmgJrweQ4K9GW5Zu5ndEHWPCfNCQSIndLbuqtdpf5RW2F2ERqEEvwK9sT1HIL2wUg=="
 
-eslint-plugin-promise@^3.3.0:
-  version "3.8.0"
-  resolved "https://registry.npmjs.org/eslint-plugin-promise/-/eslint-plugin-promise-3.8.0.tgz"
+eslint-plugin-promise@^4.3.1:
+  version "4.3.1"
+  resolved "https://registry.yarnpkg.com/eslint-plugin-promise/-/eslint-plugin-promise-4.3.1.tgz#61485df2a359e03149fdafc0a68b0e030ad2ac45"
 
 eslint-plugin-react@^6.3.0:
   version "6.10.3"
