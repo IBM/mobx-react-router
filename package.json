@@ -8,7 +8,7 @@
     "lint": "eslint src __test__",
     "test": "npm run lint && jest",
     "test-watch": "jest --watch",
-    "clean": "rimraf dist -f",
+    "clean": "rimraf dist",
     "build:minified": "cross-env NODE_ENV=production MINIFY=true webpack --progress --colors",
     "build:unminified": "cross-env NODE_ENV=production webpack --progress --colors",
     "build": "npm run build:minified && npm run build:unminified",
