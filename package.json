@@ -1,6 +1,6 @@
 {
   "name": "mobx-react-router",
-  "version": "5.0.0",
+  "version": "5.0.1",
   "description": "Keep your MobX state in sync with react-router",
   "main": "dist/mobx-react-router.js",
   "types": "./types.d.ts",
