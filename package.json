@@ -9,8 +9,8 @@
     "test": "npm run lint && jest",
     "test-watch": "jest --watch",
     "clean": "rimraf dist",
-    "build:minified": "cross-env NODE_ENV=production MINIFY=true webpack --progress",
-    "build:unminified": "cross-env NODE_ENV=production webpack --progress",
+    "build:minified": "cross-env NODE_ENV=production MINIFY=true $(yarn bin webpack) --progress",
+    "build:unminified": "cross-env NODE_ENV=production $(yarn bin webpack) --progress",
     "build": "npm run build:minified && npm run build:unminified",
     "prepublish": "npm run clean && npm run lint && npm run test && npm run build",
     "semantic-release": "semantic-release pre && npm publish && semantic-release post"
