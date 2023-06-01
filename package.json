@@ -73,7 +73,7 @@
     "semantic-release": "^21.0.2",
     "typescript": "^4.3.3",
     "webpack": "^4.29.6",
-    "webpack-cli": "^3.3.0"
+    "webpack-cli": "^4.10.0"
   },
   "peerDependencies": {
     "mobx": "^6.0.0",
