@@ -3459,10 +3459,9 @@ eslint-config-standard-react@^5.0.0:
   dependencies:
     eslint-config-standard-jsx "^4.0.0"
 
-eslint-config-standard@^6.0.1:
-  version "6.2.1"
-  resolved "https://registry.npmjs.org/eslint-config-standard/-/eslint-config-standard-6.2.1.tgz"
-  integrity "sha1-06aKr8cZFjnn7kQec0hzkCY1QpI= sha512-CIPBOuTRFzXaLTKtbGJi1pmgJrweQ4K9GW5Zu5ndEHWPCfNCQSIndLbuqtdpf5RW2F2ERqEEvwK9sT1HIL2wUg=="
+eslint-config-standard@^7.1.0:
+  version "7.1.0"
+  resolved "https://registry.yarnpkg.com/eslint-config-standard/-/eslint-config-standard-7.1.0.tgz#47e769ea0739f5b2d5693b1a501c21c9650fafcf"
 
 eslint-plugin-promise@^4.3.1:
   version "4.3.1"
