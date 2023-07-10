@@ -5167,6 +5167,28 @@ jest-haste-map@^29.6.1:
   optionalDependencies:
     fsevents "^2.3.2"
 
+jest-jasmine2@^29.6.1:
+  version "29.6.1"
+  resolved "https://registry.yarnpkg.com/jest-jasmine2/-/jest-jasmine2-29.6.1.tgz#9f5a03b435576a38402d1aa83d46f56f0f2798f9"
+  dependencies:
+    "@jest/environment" "^29.6.1"
+    "@jest/expect" "^29.6.1"
+    "@jest/source-map" "^29.6.0"
+    "@jest/test-result" "^29.6.1"
+    "@jest/types" "^29.6.1"
+    "@types/node" "*"
+    chalk "^4.0.0"
+    co "^4.6.0"
+    is-generator-fn "^2.0.0"
+    jest-each "^29.6.1"
+    jest-matcher-utils "^29.6.1"
+    jest-message-util "^29.6.1"
+    jest-runtime "^29.6.1"
+    jest-snapshot "^29.6.1"
+    jest-util "^29.6.1"
+    p-limit "^3.1.0"
+    pretty-format "^29.6.1"
+
 jest-leak-detector@^29.6.1:
   version "29.6.1"
   resolved "https://registry.yarnpkg.com/jest-leak-detector/-/jest-leak-detector-29.6.1.tgz#66a902c81318e66e694df7d096a95466cb962f8e"
@@ -8190,9 +8212,9 @@ typedarray@^0.0.6:
   resolved "https://registry.npmjs.org/typedarray/-/typedarray-0.0.6.tgz"
   integrity "sha1-hnrHTjhkGHsdPUfZlqeOxciDB3c= sha512-/aCDEGatGvZ2BIk+HmLf4ifCJFwvKFNb9/JeZPMulfgFracn9QFcAf5GO8B/mweUjSoblS5In0cWhqpfs/5PQA=="
 
-typescript@^4.3.3:
-  version "4.3.3"
-  resolved "https://registry.npmjs.org/typescript/-/typescript-4.3.3.tgz"
+typescript@^5.1.6:
+  version "5.1.6"
+  resolved "https://registry.yarnpkg.com/typescript/-/typescript-5.1.6.tgz#02f8ac202b6dad2c0dd5e0913745b47a37998274"
 
 uglify-js@^3.1.4:
   version "3.5.1"
