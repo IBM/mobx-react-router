@@ -35,7 +35,7 @@
   ],
   "repository": {
     "type": "git",
-    "url": "https://github.com/alisd23/mobx-react-router.git"
+    "url": "https://github.com/IBM/mobx-react-router.git"
   },
   "keywords": [
     "react",
@@ -49,9 +49,9 @@
   "author": "Ali Sheehan-Dare - @im_alisd",
   "license": "MIT",
   "bugs": {
-    "url": "https://github.com/alisd23/mobx-react-router/issues"
+    "url": "https://github.com/IBM/mobx-react-router/issues"
   },
-  "homepage": "https://github.com/alisd23/mobx-react-router#readme",
+  "homepage": "https://github.com/IBM/mobx-react-router#readme",
   "devDependencies": {
     "@babel/core": "^7.4.0",
     "@babel/plugin-proposal-class-properties": "^7.4.0",
