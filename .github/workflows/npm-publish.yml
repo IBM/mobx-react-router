@@ -30,4 +30,19 @@ jobs:
       - run: npm install
       - run: npm publish
         env:
+          NODE_AUTH_TOKEN: ${{secrets.NPM_ACCESS_TOKEN_IBM_PACKAGE}}
+  
+  publish-npm-old:
+    needs: build
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v3
+      - uses: actions/setup-node@v3
+        with:
+          node-version: 16
+          registry-url: https://registry.npmjs.org/
+      - run: sed -i 's/@ibm\/mobx-react-router/mobx-react-router/g' package.json
+      - run: npm install
+      - run: npm publish
+        env:
           NODE_AUTH_TOKEN: ${{secrets.NPM_ACCESS_TOKEN}}
