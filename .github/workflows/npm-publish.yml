@@ -41,7 +41,7 @@ jobs:
         with:
           node-version: 16
           registry-url: https://registry.npmjs.org/
-      - run: sed -i 's/"@ibm/mobx-react-router"/mobx-react-router/g' package.json
+      - run: sed -i 's/@ibm\/mobx-react-router/mobx-react-router/g' package.json
       - run: npm install
       - run: npm publish
         env:
