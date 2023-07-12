@@ -1,3 +1,6 @@
+# /!\ The NPM location of this repository has changed /!\
+Use `@ibm/mobx-react-router`
+
 # mobx-react-router
 Keep your MobX state in sync with react-router via a `RouterStore`.
 
@@ -21,8 +24,10 @@ If you're looking for the bindings for use with react-router `v3` go to [the v3 
 ## Installation
 
 ```
-npm install --save mobx-react-router
+npm install --save @ibm/mobx-react-router
 ```
+
+/!\ `npm install --save mobx-react-router` is now deprecated, use `npm install --save @ibm/mobx-react-router`
 
 And if you haven't installed all the peer dependencies, you should probably do that now:
 
