@@ -20,7 +20,7 @@ const matchers = {
       );
       return {
         pass: passed,
-        message: passed
+        message: () => passed
           ? 'Location\'s matched'
           : `Expected location to be ${JSON.stringify(expected)} but it was ${JSON.stringify(actual)}`
       };
