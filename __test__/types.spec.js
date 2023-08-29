@@ -6,7 +6,7 @@ beforeEach(() => {
     toBeEmpty: () => ({
       compare: (actual, expected) => ({
         pass: actual.length === 0,
-        message: 'Expected empty, but found ' + JSON.stringify(actual, null, 2)
+        message: () => 'Expected empty, but found ' + JSON.stringify(actual, null, 2)
       })
     })
   });
