@@ -9,7 +9,7 @@ const matchers = {
       expected = {
         search: '',
         hash: '',
-        state: undefined,
+        state: null,
         ...expected
       };
       const passed = (
