@@ -2,6 +2,7 @@
 import { Router } from 'react-router';
 import { History, Location, createBrowserHistory, createMemoryHistory } from 'history';
 import { RouterStore, SynchronizedHistory, syncHistoryWithStore } from '../';
+import React from 'react';
 
 const routerStore: RouterStore = new RouterStore();
 const browserHistory: History = createBrowserHistory();
@@ -34,21 +35,16 @@ const history: SynchronizedHistory = syncHistoryWithStore(browserHistory, router
   history.push('path/to/location');
   history.push(location);
   history.replace('path/to/replace');
-  history.replace({
-    pathname: location.pathname,
-    state: location.state,
-    hash: location.hash,
-    key: location.key
-  });
+  history.replace(location.pathname, location.state);
 }
 
 {
-  const { pathname, hash, key, search, state } = routerStore.location;
+  const { pathname, state } = routerStore.location;
   routerStore.push('path/to/location');
-  routerStore.push({ pathname, hash, key, state });
+  routerStore.push(pathname, state);
   routerStore.go(-1);
   routerStore.back();
   routerStore.forward();
   routerStore.replace('path/to/replace');
-  routerStore.replace({ pathname, hash, key, state });
+  routerStore.replace(pathname, state);
 }
