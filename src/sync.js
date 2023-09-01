@@ -5,8 +5,8 @@ export const syncHistoryWithStore = (history, store) => {
   store.history = history;
 
   // Handle update from history object
-  const handleLocationChange = (changes) => {
-    store._updateLocation(changes['location']);
+  const handleLocationChange = (location) => {
+    store._updateLocation(location);
   };
 
   const unsubscribeFromHistory = history.listen(handleLocationChange);

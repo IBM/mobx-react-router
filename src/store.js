@@ -30,10 +30,10 @@ export class RouterStore {
   };
 
   @action.bound goBack = () => {
-    this.history.goBack();
+    this.history.back();
   };
 
   @action.bound goForward = () => {
-    this.history.goForward();
+    this.history.forward();
   };
 };
