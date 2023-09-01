@@ -19,8 +19,8 @@ describe('store', () => {
     store.push('/url-1');
     store.replace('/url-2');
     store.go(-1);
-    store.goBack();
-    store.goForward();
+    store.back();
+    store.forward();
 
     expect(mockHistory.push.mock.calls.length).toBe(1);
     expect(mockHistory.push.mock.calls[0][0]).toBe('/url-1');

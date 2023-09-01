@@ -77,13 +77,13 @@ import { inject, observer } from 'mobx-react';
 @observer
 export default class App extends Component {
   render() {
-    const { location, push, goBack } = this.props.routing;
+    const { location, push, back } = this.props.routing;
 
     return (
       <div>
         <span>Current pathname: {location.pathname}</span>
         <button onClick={() => push('/test')}>Change url</button>
-        <button onClick={() => goBack()}>Go Back</button>
+        <button onClick={() => back()}>Go Back</button>
       </div>
     );
   }
@@ -135,8 +135,8 @@ And the following [history methods](https://github.com/mjackson/history#navigati
 - **push(*path*)**
 - **replace(*path*)**
 - **go(*n*)**
-- **goBack()**
-- **goForward()**
+- **back()**
+- **forward()**
 
 ### syncHistoryWithStore(*history*, *store*)
 

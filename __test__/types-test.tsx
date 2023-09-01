@@ -47,8 +47,8 @@ const history: SynchronizedHistory = syncHistoryWithStore(browserHistory, router
   routerStore.push('path/to/location');
   routerStore.push({ pathname, hash, key, state });
   routerStore.go(-1);
-  routerStore.goBack();
-  routerStore.goForward();
+  routerStore.back();
+  routerStore.forward();
   routerStore.replace('path/to/replace');
   routerStore.replace({ pathname, hash, key, state });
 }

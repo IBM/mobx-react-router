@@ -15,7 +15,7 @@ declare namespace MobxReactRouter {
     location: Location;
   }
 
-  export interface RouterStore extends Pick<History, 'push' | 'replace' | 'go' | 'goBack' | 'goForward'> { }
+  export interface RouterStore extends Pick<History, 'push' | 'replace' | 'go' | 'back' | 'forward'> { }
 
   export function syncHistoryWithStore(history: History, store: RouterStore): SynchronizedHistory;
 }
