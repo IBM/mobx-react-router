@@ -19,9 +19,9 @@ const history: SynchronizedHistory = syncHistoryWithStore(browserHistory, router
 }
 
 {
-  history.unsubscribe();
+  history.unsubscribe?.();
 
-  const unsubscribeFromStore = history.subscribe((Location, action) => console.log(location.pathname, action));
+  const unsubscribeFromStore = history.subscribe(({location, action}) => console.log(location.pathname, action));
   history.push('/test1');
   unsubscribeFromStore();
   history.push('/test2');
