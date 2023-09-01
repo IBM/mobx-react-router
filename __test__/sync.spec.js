@@ -48,13 +48,13 @@ describe('syncing', () => {
       pathname: '/url-1'
     });
 
-    history.goBack();
+    history.back();
     expect(routerStore.history.action).toBe('POP');
     expect(routerStore.location).toEqualLocation({
       pathname: '/'
     });
 
-    history.goForward();
+    history.forward();
     expect(routerStore.history.action).toBe('POP');
     expect(routerStore.location).toEqualLocation({
       pathname: '/url-1'
