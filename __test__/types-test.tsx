@@ -9,13 +9,20 @@ const browserHistory: History = createBrowserHistory();
 const history: SynchronizedHistory = syncHistoryWithStore(browserHistory, routerStore);
 
 {
-  { <Router history={history} /> }
-  { <Router history={browserHistory} /> }
-  { <Router history={routerStore.history} /> }
-  { <Router history={createMemoryHistory()} /> }
-  { <Router history={createBrowserHistory()} /> }
-  { <Router history={syncHistoryWithStore(createBrowserHistory(), new RouterStore())} /> }
-  { <Router history={syncHistoryWithStore(createMemoryHistory(), new RouterStore())} /> }
+  { <Router location={routerStore.location} navigator={history} /> }
+  { <Router location={routerStore.location} navigator={browserHistory} /> }
+  { <Router location={routerStore.location} navigator={routerStore.history} /> }
+  { <Router location={routerStore.location} navigator={createMemoryHistory()} /> }
+  { <Router location={routerStore.location} navigator={createBrowserHistory()} /> }
+  { <Router location={routerStore.location} navigator={syncHistoryWithStore(createBrowserHistory(), new RouterStore())} /> }
+  { <Router location={routerStore.location} navigator={syncHistoryWithStore(createMemoryHistory(), new RouterStore())} /> }
+  // {
+  //   <Router navigator={history}>
+  //     <StaticRouter location={"url"} context={context}>
+
+  //     </StaticRouter>
+  //   </Router>
+  // }
 }
 
 {
