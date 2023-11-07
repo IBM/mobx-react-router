@@ -1,7 +1,7 @@
 // This contains sample code which tests the typings. This code does not run, but it is type-checked
-import { Router } from 'react-router';
+// import { Router } from 'react-router';
 import { History, Location, createBrowserHistory, createMemoryHistory } from 'history';
-import { RouterStore, SynchronizedHistory, syncHistoryWithStore } from '../';
+import { RouterStore, SynchronizedHistory, syncHistoryWithStore, SimpleRouter as Router } from '../';
 
 import * as React from 'react';
 
@@ -10,9 +10,11 @@ const browserHistory: History = createBrowserHistory();
 const history: SynchronizedHistory = syncHistoryWithStore(browserHistory, routerStore);
 
 {
+  { <Router store={routerStore}/> }
+  { <Router location={routerStore.location} navigator={routerStore.history} /> }
+  { <Router store={routerStore} navigator={history} /> }
   { <Router location={routerStore.location} navigator={history} /> }
   { <Router location={routerStore.location} navigator={browserHistory} /> }
-  { <Router location={routerStore.location} navigator={routerStore.history} /> }
   { <Router location={routerStore.location} navigator={createMemoryHistory()} /> }
   { <Router location={routerStore.location} navigator={createBrowserHistory()} /> }
   { <Router location={routerStore.location} navigator={syncHistoryWithStore(createBrowserHistory(), new RouterStore())} /> }

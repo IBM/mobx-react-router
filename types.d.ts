@@ -2,7 +2,7 @@
 // Project: https://github.com/IBM/mobx-react-router
 
 import { History, Location, Listener } from 'history';
-import { RouterProps } from 'react-router'
+import {RouterProps} from 'react-router'
 
 declare namespace MobxReactRouter {
 
@@ -21,6 +21,9 @@ declare namespace MobxReactRouter {
   export interface RouterStore extends Pick<History, 'push' | 'replace' | 'go' | 'back' | 'forward'> { }
 
   export function syncHistoryWithStore(history: History, store: RouterStore): SynchronizedHistory;
+
+  export type SimpleRouterProps = Pick<RouterProps, 'basename' | 'children' | 'static'> & {store?: RouterStore, location?: Location, navigator?: History};
+  export function SimpleRouter(props: SimpleRouterProps)
 }
 
 export = MobxReactRouter;
