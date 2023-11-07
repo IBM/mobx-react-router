@@ -1,7 +1,8 @@
-// Type definitions for mobx-react-router 4.0
-// Project: https://github.com/alisd23/mobx-react-router
+// Type definitions for mobx-react-router 6.0
+// Project: https://github.com/IBM/mobx-react-router
 
 import { History, Location, Listener } from 'history';
+import { RouterProps } from 'react-router'
 
 declare namespace MobxReactRouter {
 

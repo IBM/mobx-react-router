@@ -2,7 +2,8 @@
 import { Router } from 'react-router';
 import { History, Location, createBrowserHistory, createMemoryHistory } from 'history';
 import { RouterStore, SynchronizedHistory, syncHistoryWithStore } from '../';
-import React from 'react';
+
+import * as React from 'react';
 
 const routerStore: RouterStore = new RouterStore();
 const browserHistory: History = createBrowserHistory();

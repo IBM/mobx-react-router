@@ -12,5 +12,10 @@
     "react/jsx-no-bind": [1, {
       "allowArrowFunctions": true
     }]
+  },
+  "settings": {
+    "react": {
+      "version": "detect"
+    }
   }
 }
