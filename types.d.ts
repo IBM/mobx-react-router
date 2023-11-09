@@ -22,8 +22,7 @@ declare namespace MobxReactRouter {
 
   export function syncHistoryWithStore(history: History, store: RouterStore): SynchronizedHistory;
 
-  export type SimpleRouterProps = Pick<RouterProps, 'basename' | 'children' | 'static'> & {store?: RouterStore, location?: Location, navigator?: History};
-  export function SimpleRouter(props: SimpleRouterProps)
+  export function Router(props: {history: History})
 }
 
 export = MobxReactRouter;

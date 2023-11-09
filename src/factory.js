@@ -1,16 +1,16 @@
 import * as React from 'react';
-import { Router } from 'react-router';
+import { Router as ReactRouter } from 'react-router';
 
-SimpleRouter.propTypes = {
-  store
+Router.propTypes = {
+  history
 };
 
-export function SimpleRouter(props) {
-  const { store } = props;
+export function Router(props) {
+  const { history } = props;
   return (
-    <Router
-      location={store?.location}
-      navigator={store?.history}
+    <ReactRouter
+      location={history.location}
+      navigator={history}
       {...props}
     />
   );
