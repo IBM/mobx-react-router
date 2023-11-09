@@ -16,7 +16,8 @@ Very much inspired by (and copied from) [react-router-redux](https://github.com/
   - [syncHistoryWithStore](#synchistorywithstorehistory-store)
 
 
-This branch (master) is for use with **react-router v5**.
+This branch (master) is for use with **react-router v6**.
+Please, check the branch [v5](https://github.com/IBM/mobx-react-router/tree/v5) for **react-router v5**.
 
 ## Installation
 
