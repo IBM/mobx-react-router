@@ -1,5 +1,5 @@
-// Type definitions for mobx-react-router 4.0
-// Project: https://github.com/alisd23/mobx-react-router
+// Type definitions for mobx-react-router 5.0
+// Project: https://github.com/IBM/mobx-react-router
 
 import { History, Location, UnregisterCallback, LocationListener } from 'history';
 

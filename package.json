@@ -1,6 +1,6 @@
 {
   "name": "@ibm/mobx-react-router",
-  "version": "5.0.2",
+  "version": "5.0.3",
   "description": "Keep your MobX state in sync with react-router",
   "main": "dist/mobx-react-router.js",
   "types": "./types.d.ts",
@@ -83,6 +83,6 @@
   },
   "peerDependencies": {
     "mobx": "^6.0.0",
-    "react-router": "^5.0.0"
+    "react-router": "^5.2.0"
   }
 }
