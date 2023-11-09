@@ -1,6 +1,6 @@
 {
   "extends": ["standard", "standard-react"],
-  "parser": "babel-eslint",
+  "parser": "@babel/eslint-parser",
   "rules": {
     "semi": [1, "always"],
     "camelcase": [0],
