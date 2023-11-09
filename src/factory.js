@@ -45,12 +45,12 @@ export function Route(props) {
   const renderSingleRoute = (single_path) => (
     <ReactRoute
       element={component}
-      path={`${single_path}{exact ? '' : '/*'}`}
+      path={`${single_path}${exact ? '' : '/*'}`}
       {...props}
     />
-  )
-  if(typeof(path) === 'string') {
+  );
+  if (typeof path === 'string') {
     return renderSingleRoute(path);
   }
-  return path.map(single_path => renderSingleRoute(path)};
+  return path.map(single_path => renderSingleRoute(single_path));
 }
