@@ -29,11 +29,11 @@ export class RouterStore {
     this.history.go(iState);
   };
 
-  @action.bound goBack = () => {
-    this.history.goBack();
+  @action.bound back = () => {
+    this.history.back();
   };
 
-  @action.bound goForward = () => {
-    this.history.goForward();
+  @action.bound forward = () => {
+    this.history.forward();
   };
 };

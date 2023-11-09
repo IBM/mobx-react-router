@@ -9,7 +9,7 @@ const matchers = {
       expected = {
         search: '',
         hash: '',
-        state: undefined,
+        state: null,
         ...expected
       };
       const passed = (
@@ -20,7 +20,7 @@ const matchers = {
       );
       return {
         pass: passed,
-        message: passed
+        message: () => passed
           ? 'Location\'s matched'
           : `Expected location to be ${JSON.stringify(expected)} but it was ${JSON.stringify(actual)}`
       };
@@ -48,13 +48,13 @@ describe('syncing', () => {
       pathname: '/url-1'
     });
 
-    history.goBack();
+    history.back();
     expect(routerStore.history.action).toBe('POP');
     expect(routerStore.location).toEqualLocation({
       pathname: '/'
     });
 
-    history.goForward();
+    history.forward();
     expect(routerStore.history.action).toBe('POP');
     expect(routerStore.location).toEqualLocation({
       pathname: '/url-1'

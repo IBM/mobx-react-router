@@ -1,16 +1,18 @@
 // This contains sample code which tests the typings. This code does not run, but it is type-checked
-import { Router } from 'react-router';
+// import { Router } from 'react-router';
 import { History, Location, createBrowserHistory, createMemoryHistory } from 'history';
-import { RouterStore, SynchronizedHistory, syncHistoryWithStore } from '../';
+import { RouterStore, SynchronizedHistory, syncHistoryWithStore, Router } from '../';
+
+import * as React from 'react';
 
 const routerStore: RouterStore = new RouterStore();
 const browserHistory: History = createBrowserHistory();
 const history: SynchronizedHistory = syncHistoryWithStore(browserHistory, routerStore);
 
 {
+  { <Router history={history}/> }
   { <Router history={history} /> }
   { <Router history={browserHistory} /> }
-  { <Router history={routerStore.history} /> }
   { <Router history={createMemoryHistory()} /> }
   { <Router history={createBrowserHistory()} /> }
   { <Router history={syncHistoryWithStore(createBrowserHistory(), new RouterStore())} /> }
@@ -18,9 +20,9 @@ const history: SynchronizedHistory = syncHistoryWithStore(browserHistory, router
 }
 
 {
-  history.unsubscribe();
+  history.unsubscribe?.();
 
-  const unsubscribeFromStore = history.subscribe((Location, action) => console.log(location.pathname, action));
+  const unsubscribeFromStore = history.subscribe(({location, action}) => console.log(location.pathname, action));
   history.push('/test1');
   unsubscribeFromStore();
   history.push('/test2');
@@ -34,21 +36,16 @@ const history: SynchronizedHistory = syncHistoryWithStore(browserHistory, router
   history.push('path/to/location');
   history.push(location);
   history.replace('path/to/replace');
-  history.replace({
-    pathname: location.pathname,
-    state: location.state,
-    hash: location.hash,
-    key: location.key
-  });
+  history.replace(location.pathname, location.state);
 }
 
 {
-  const { pathname, hash, key, search, state } = routerStore.location;
+  const { pathname, state } = routerStore.location;
   routerStore.push('path/to/location');
-  routerStore.push({ pathname, hash, key, state });
+  routerStore.push(pathname, state);
   routerStore.go(-1);
-  routerStore.goBack();
-  routerStore.goForward();
+  routerStore.back();
+  routerStore.forward();
   routerStore.replace('path/to/replace');
-  routerStore.replace({ pathname, hash, key, state });
+  routerStore.replace(pathname, state);
 }

@@ -1,12 +1,14 @@
-// Type definitions for mobx-react-router 5.0
+// Type definitions for mobx-react-router 6.0
 // Project: https://github.com/IBM/mobx-react-router
 
-import { History, Location, UnregisterCallback, LocationListener } from 'history';
+import { History, Location, Listener } from 'history';
 
 declare namespace MobxReactRouter {
 
+  type UnregisterCallback = () => void
+
   export interface SynchronizedHistory extends History {
-    subscribe: (listener: LocationListener) => UnregisterCallback;
+    subscribe: (listener: Listener) => UnregisterCallback;
     unsubscribe?: UnregisterCallback;
   }
 
@@ -15,9 +17,13 @@ declare namespace MobxReactRouter {
     location: Location;
   }
 
-  export interface RouterStore extends Pick<History, 'push' | 'replace' | 'go' | 'goBack' | 'goForward'> { }
+  export interface RouterStore extends Pick<History, 'push' | 'replace' | 'go' | 'back' | 'forward'> { }
 
   export function syncHistoryWithStore(history: History, store: RouterStore): SynchronizedHistory;
+
+  export function Router(props: {history: History})
+
+  export function withRouter(Component)
 }
 
 export = MobxReactRouter;

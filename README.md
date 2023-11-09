@@ -16,7 +16,8 @@ Very much inspired by (and copied from) [react-router-redux](https://github.com/
   - [syncHistoryWithStore](#synchistorywithstorehistory-store)
 
 
-This branch (master) is for use with **react-router v5**.
+This branch (master) is for use with **react-router v6**.
+Please, check the branch [v5](https://github.com/IBM/mobx-react-router/tree/v5) for **react-router v5**.
 
 ## Installation
 
@@ -74,13 +75,13 @@ import { inject, observer } from 'mobx-react';
 @observer
 export default class App extends Component {
   render() {
-    const { location, push, goBack } = this.props.routing;
+    const { location, push, back } = this.props.routing;
 
     return (
       <div>
         <span>Current pathname: {location.pathname}</span>
         <button onClick={() => push('/test')}>Change url</button>
-        <button onClick={() => goBack()}>Go Back</button>
+        <button onClick={() => back()}>Go Back</button>
       </div>
     );
   }
@@ -120,8 +121,8 @@ And the following [history methods](https://github.com/mjackson/history#navigati
 - **push(*path*)**
 - **replace(*path*)**
 - **go(*n*)**
-- **goBack()**
-- **goForward()**
+- **back()**
+- **forward()**
 
 ### syncHistoryWithStore(*history*, *store*)
 
@@ -151,3 +152,11 @@ Un-syncs the store from the history. The store will **no longer update** when th
 history.unsubscribe();
 // Store no longer updates
 ```
+
+### Factory
+
+Some utils to facilitate the migration from react-router v4/v5 to v5.1 and v6:
+
+A simple **Router** component that just accepts a **history** as a props.
+
+A **withRouter** method (see [What happened to withRouter?](https://reactrouter.com/en/main/start/faq#what-happened-to-withrouter-i-need-it) for more information).
