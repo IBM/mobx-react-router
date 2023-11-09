@@ -1,5 +1,5 @@
 import * as React from 'react';
-import { Router as ReactRouter } from 'react-router';
+import { Router as ReactRouter, useLocation, useNavigate, useParams } from 'react-router';
 
 Router.propTypes = {
   history
@@ -14,4 +14,22 @@ export function Router(props) {
       {...props}
     />
   );
+}
+
+export function withRouter(Component) {
+  function ComponentWithRouterProp(props) {
+    let location = useLocation();
+    let navigate = useNavigate();
+    let params = useParams();
+    return (
+      <Component
+        {...props}
+        location={location}
+        history={navigate}
+        match={params}
+      />
+    );
+  }
+
+  return ComponentWithRouterProp;
 }
