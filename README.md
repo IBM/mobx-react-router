@@ -16,10 +16,7 @@ Very much inspired by (and copied from) [react-router-redux](https://github.com/
   - [syncHistoryWithStore](#synchistorywithstorehistory-store)
 
 
-This branch (master) is for use with **react-router v4**.
-
-If you're looking for the bindings for use with react-router `v3` go to [the v3 branch](https://github.com/alisd23/mobx-react-router/tree/v3).
-
+This branch (master) is for use with **react-router v5**.
 
 ## Installation
 
@@ -94,11 +91,6 @@ export default class App extends Component {
 
 You can replace `history/createBrowserHistory` with `history/createHashHistory` in the example above to use hash routes instead of HTML5 routing.
 
-### Typescript
-
-If you are using typescript - the built in typings for this project depend on
-`@types/history`, so make sure you have them installed too.
-
 ## Troubleshooting
 
 **Routes not updating correctly when URL changes**
@@ -107,15 +99,8 @@ There is a known issue with React Router 4 and MobX (and Redux) where "blocker" 
 created by `@observer` (and `@connect` in Redux) block react router updates from propagating down the
 component tree.
 
-There is a React Router 4 documentation page for information on this issue:
-
-https://github.com/ReactTraining/react-router/blob/master/packages/react-router/docs/guides/blocked-updates.md
-
 To fix problems like this, try wrapping components which are being "blocked" with React Router's `withRouter` higher
 order component should help, depending on the case.
-
-Refer to the link above for more information on this solution, and some alternatives.
-
 
 ## API
 
