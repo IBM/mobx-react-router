@@ -45,7 +45,7 @@ export function Route(props) {
   const renderSingleRoute = (single_path) => (
     <ReactRoute
       element={component}
-      path={`${single_path}${exact ? '' : '/*'}`}
+      path={single_path ? `${single_path}${exact ? '' : '/*'}` : undefined}
       {...props}
     />
   );
