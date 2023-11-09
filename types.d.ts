@@ -26,7 +26,7 @@ declare namespace MobxReactRouter {
 
   export function withRouter(Component)
 
-  export function Route(props: {exact?: boolean, component: React.ReactNode, path?: string | string[]})
+  export function Route(props: {exact?: boolean, component: React.ReactNode, path?: string | string[], render?: () => React.ReactNode})
 }
 
 export = MobxReactRouter;
