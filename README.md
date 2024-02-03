@@ -14,7 +14,6 @@ Very much inspired by (and copied from) [react-router-redux](https://github.com/
 - [API](#api)
   - [RouterStore](#routerstore)
   - [syncHistoryWithStore](#synchistorywithstorehistory-store)
-  - [Factory](https://github.com/IBM/mobx-react-router#factory)
 
 
 This branch (master) is for use with **react-router v6**.
@@ -153,11 +152,3 @@ Un-syncs the store from the history. The store will **no longer update** when th
 history.unsubscribe();
 // Store no longer updates
 ```
-
-### Factory
-
-Some utils to facilitate the migration from react-router v4/v5 to v5.1 and v6:
-
-A simple **Router** component that just accepts a **history** as a prop.
-
-A **withRouter** method (see [What happened to withRouter?](https://reactrouter.com/en/main/start/faq#what-happened-to-withrouter-i-need-it) for more information).
