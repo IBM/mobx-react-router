@@ -1,4 +1,4 @@
-import {observable, action, makeObservable} from 'mobx';
+import { observable, action, makeObservable } from 'mobx';
 
 export class RouterStore {
   @observable location = null;
