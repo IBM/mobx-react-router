@@ -1,4 +1,4 @@
-# /!\ The NPM location of this repository has changed /!\
+# /!\ The NPM location of this repository has changed /!\ 
 Use `@ibm/mobx-react-router`
 
 # mobx-react-router
