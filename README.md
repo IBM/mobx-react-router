@@ -88,7 +88,7 @@ export default class App extends Component {
 }
 ```
 
-Check our live [example](https://stackblitz.com/edit/github-bje76z-uyn64v?file=index.html).
+Check our live [example](https://stackblitz.com/edit/github-bje76z-uyn64v?file=src%2Fmain.jsx).
 
 ### HashRouter
 
