@@ -33,6 +33,30 @@ And if you haven't installed all the peer dependencies, you should probably do t
 npm install --save mobx mobx-react react-router
 ```
 
+Although, mobx v6 deprecated decorators, this library still requires to enable them.
+Below is an example of configuration using `vite.js`:
+
+```
+import { defineConfig } from 'vite';
+import react from '@vitejs/plugin-react';
+
+export default defineConfig({
+  target: 'es2015',
+  plugins: [
+    react({
+      babel: {
+        plugins: [
+          ['@babel/plugin-proposal-decorators', { legacy: true }],
+        ],
+      },
+    }),
+  ],
+});
+```
+
+For more details, please consult the documentation of [mobx v6](https://mobx.js.org/enabling-decorators.html) on decorators.
+
+
 ## Usage
 
 `index.js`
