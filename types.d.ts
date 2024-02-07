@@ -22,11 +22,6 @@ declare namespace MobxReactRouter {
 
   export function syncHistoryWithStore(history: History, store: RouterStore): SynchronizedHistory;
 
-  export function Router(props: {history: History, children?: React.ReactNode})
-
-  export function withRouter(Component)
-
-  export function Route(props: {exact?: boolean, component?: React.ReactNode, path?: string | string[], render?: () => React.ReactNode})
 }
 
 export = MobxReactRouter;
