@@ -43,7 +43,7 @@ import { createBrowserHistory } from 'history';
 import { Provider } from 'mobx-react';
 import { RouterStore, syncHistoryWithStore } from '@ibm/mobx-react-router';
 import { Router } from 'react-router';
-import App from './App.jsx';
+import App from './App';
 
 const browserHistory = createBrowserHistory();
 const routingStore = new RouterStore();
