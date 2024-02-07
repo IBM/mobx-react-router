@@ -41,9 +41,9 @@ import React from 'react';
 import ReactDOM from 'react-dom';
 import { createBrowserHistory } from 'history';
 import { Provider } from 'mobx-react';
-import { RouterStore, syncHistoryWithStore } from 'mobx-react-router';
+import { RouterStore, syncHistoryWithStore } from '@ibm/mobx-react-router';
 import { Router } from 'react-router';
-import App from './App';
+import App from './App.jsx';
 
 const browserHistory = createBrowserHistory();
 const routingStore = new RouterStore();
@@ -58,7 +58,7 @@ const history = syncHistoryWithStore(browserHistory, routingStore);
 
 ReactDOM.render(
   <Provider {...stores}>
-    <Router history={history}>
+    <Router location={routingStore.location} navigator={history}>
       <App />
     </Router>
   </Provider>,
@@ -87,6 +87,8 @@ export default class App extends Component {
   }
 }
 ```
+
+Check our live [example](https://stackblitz.com/edit/github-bje76z-uyn64v?file=index.html).
 
 ### HashRouter
 
