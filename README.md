@@ -33,6 +33,30 @@ And if you haven't installed all the peer dependencies, you should probably do t
 npm install --save mobx mobx-react react-router
 ```
 
+Although, mobx v6 deprecated decorators, this library still requires to enable them.
+Below is an example of configuration using `vite.js`:
+
+```
+import { defineConfig } from 'vite';
+import react from '@vitejs/plugin-react';
+
+export default defineConfig({
+  target: 'es2015',
+  plugins: [
+    react({
+      babel: {
+        plugins: [
+          ['@babel/plugin-proposal-decorators', { legacy: true }],
+        ],
+      },
+    }),
+  ],
+});
+```
+
+For more details, please consult the documentation of [mobx v6](https://mobx.js.org/enabling-decorators.html) on decorators.
+
+
 ## Usage
 
 `index.js`
@@ -41,7 +65,7 @@ import React from 'react';
 import ReactDOM from 'react-dom';
 import { createBrowserHistory } from 'history';
 import { Provider } from 'mobx-react';
-import { RouterStore, syncHistoryWithStore } from 'mobx-react-router';
+import { RouterStore, syncHistoryWithStore } from '@ibm/mobx-react-router';
 import { Router } from 'react-router';
 import App from './App';
 
@@ -58,7 +82,7 @@ const history = syncHistoryWithStore(browserHistory, routingStore);
 
 ReactDOM.render(
   <Provider {...stores}>
-    <Router history={history}>
+    <Router location={routingStore.location} navigator={history}>
       <App />
     </Router>
   </Provider>,
@@ -87,6 +111,8 @@ export default class App extends Component {
   }
 }
 ```
+
+Check our live [example](https://stackblitz.com/edit/github-bje76z-uyn64v?file=src%2Fmain.jsx).
 
 ### HashRouter
 
