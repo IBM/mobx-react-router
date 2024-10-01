@@ -15,7 +15,7 @@ beforeEach(() => {
 describe('types', () => {
   it('can diagnose types without errors', () => {
     const files = [path.join(__dirname, '/types-test')];
-    const options = { noEmit: true, jsx: 'react' };
+    const options = { noEmit: true, jsx: ts.JsxEmit.React };
     const program = ts.createProgram(files, options);
     const diagnosticErrors = ts.getPreEmitDiagnostics(program)
       .filter((diagnostic) => diagnostic.category === ts.DiagnosticCategory.Error)
