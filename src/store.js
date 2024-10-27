@@ -1,13 +1,9 @@
-import { observable, action, makeObservable } from 'mobx';
+import { observable, action } from 'mobx';
 
 export class RouterStore {
-  @observable location = null;
+  @observable accessor location = null;
 
   history = null;
-
-  constructor() {
-    makeObservable(this);
-  }
 
   @action
   _updateLocation(newState) {
