@@ -1,11 +1,14 @@
-import { observable, action } from 'mobx';
+import { makeAutoObservable } from 'mobx';
 
 export class RouterStore {
-  @observable accessor location = null;
+  location = null;
 
   history = null;
 
-  @action
+  constructor() {
+    makeAutoObservable(this, undefined, { autoBind: true });
+  }
+
   _updateLocation(newState) {
     this.location = newState;
   }
@@ -13,23 +16,23 @@ export class RouterStore {
   /*
    * History methods
    */
-  @action.bound push = (location, state) => {
+  push(location, state) {
     this.history.push(location, state);
   };
 
-  @action.bound replace = (location, state) => {
+  replace(location, state) {
     this.history.replace(location, state);
   };
 
-  @action.bound go = (iState) => {
+  go(iState) {
     this.history.go(iState);
   };
 
-  @action.bound back = () => {
+  back() {
     this.history.back();
   };
 
-  @action.bound forward = () => {
+  forward() {
     this.history.forward();
   };
 };
