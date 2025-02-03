@@ -65,7 +65,7 @@
     "babel-polyfill": "^6.26.0",
     "cross-env": "^7.0.3",
     "escope": "^4.0.0",
-    "eslint": "^8.46.0",
+    "eslint": "^9.19.0",
     "eslint-config-standard": "^17.1.0",
     "eslint-config-standard-react": "^13.0.0",
     "eslint-plugin-promise": "^6.1.1",
