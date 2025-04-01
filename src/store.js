@@ -5,34 +5,34 @@ export class RouterStore {
 
   history = null;
 
-  constructor() {
+  constructor () {
     makeAutoObservable(this, undefined, { autoBind: true });
   }
 
-  _updateLocation(newState) {
+  _updateLocation (newState) {
     this.location = newState;
   }
 
   /*
    * History methods
    */
-  push(location, state) {
+  push (location, state) {
     this.history.push(location, state);
-  };
+  }
 
-  replace(location, state) {
+  replace (location, state) {
     this.history.replace(location, state);
-  };
+  }
 
-  go(iState) {
+  go (iState) {
     this.history.go(iState);
-  };
+  }
 
-  back() {
+  back () {
     this.history.back();
-  };
+  }
 
-  forward() {
+  forward () {
     this.history.forward();
-  };
-};
+  }
+}
