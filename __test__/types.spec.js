@@ -18,7 +18,8 @@ describe('types', () => {
     const options = {
       noEmit: true,
       jsx: ts.JsxEmit.React,
-      target: ts.ScriptTarget.ESNext
+      target: ts.ScriptTarget.ESNext,
+      moduleResolution: ts.ModuleResolutionKind.NodeNext
     };
     const program = ts.createProgram(files, options);
     const diagnosticErrors = ts.getPreEmitDiagnostics(program)
