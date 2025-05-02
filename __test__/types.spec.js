@@ -18,7 +18,7 @@ describe('types', () => {
     const options = {
       noEmit: true,
       jsx: ts.JsxEmit.React,
-      target: "es2017"
+      target: 'es2017'
     };
     const program = ts.createProgram(files, options);
     const diagnosticErrors = ts.getPreEmitDiagnostics(program)
