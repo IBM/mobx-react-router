@@ -71,7 +71,7 @@
     "eslint-plugin-standard": "^5.0.0",
     "history": "^5.3.0",
     "jest": "^30.0.3",
-    "jest-jasmine2": "^29.6.1",
+    "jest-jasmine2": "^30.0.3",
     "mobx": "^6.3.2",
     "neostandard": "^0.12.1",
     "react-router": "^7.0.1",
