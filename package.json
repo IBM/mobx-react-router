@@ -1,6 +1,6 @@
 {
   "name": "@ibm/mobx-react-router",
-  "version": "6.1.0",
+  "version": "6.1.1",
   "description": "Keep your MobX state in sync with react-router",
   "main": "dist/mobx-react-router.js",
   "module": "dist/mobx-react-router.js",
