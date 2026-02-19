@@ -1,6 +1,6 @@
 {
   "name": "@ibm/mobx-react-router",
-  "version": "6.1.2",
+  "version": "6.1.3",
   "description": "Keep your MobX state in sync with react-router",
   "main": "dist/mobx-react-router.js",
   "module": "dist/mobx-react-router.js",
@@ -11,7 +11,12 @@
   "scripts": {
     "lint": "eslint src __test__",
     "test": "npm run lint && jest",
-    "test-watch": "jest --watch"
+    "test-watch": "jest --watch",
+    "clean": "rimraf dist",
+    "build:minified": "cross-env NODE_ENV=production MINIFY=true webpack --progress",
+    "build:unminified": "cross-env NODE_ENV=production webpack --progress",
+    "build": "npm run build:minified && npm run build:unminified",
+    "prepublish": "npm run clean && npm run lint && npm run test && npm run build"
   },
   "jest": {
     "collectCoverage": true,
@@ -30,7 +35,7 @@
   ],
   "repository": {
     "type": "git",
-    "url": "https://github.com/IBM/mobx-react-router.git"
+    "url": "git+https://github.com/IBM/mobx-react-router.git"
   },
   "keywords": [
     "react",
@@ -69,6 +74,7 @@
     "mobx": "^6.3.2",
     "neostandard": "^0.12.1",
     "react-router": "^7.0.1",
+    "rimraf": "^6.1.3",
     "typescript": "^5.1.6",
     "webpack": "^5.85.0",
     "webpack-cli": "^6.0.1"
