@@ -22,6 +22,11 @@ declare namespace MobxReactRouter {
 
   export function syncHistoryWithStore(history: History, store: RouterStore): SynchronizedHistory;
 
+  export const RouterStoreContext: React.Context<RouterStore | null>;
+  export const RouterStoreProvider: React.Provider<RouterStore | null>;
+  export function useRouterStore(): RouterStore;
+  export function useLocation(): Location;
+
 }
 
 export = MobxReactRouter;
