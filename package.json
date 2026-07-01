@@ -67,7 +67,7 @@
     "@babel/preset-env": "^7.4.2",
     "@babel/preset-react": "^7.0.0",
     "@testing-library/react": "^16.0.0",
-    "@types/node": "^25.0.3",
+    "@types/node": "^26.1.0",
     "@types/react": "^18.0.0",
     "babel-jest": "^30.0.5",
     "babel-loader": "^10.0.0",
